@@ -1,8 +1,0 @@
-# generic deps
-sphinx
-sphinx-rtd-theme
-jupyter-book
-
-# local dep
-sphinxcontrib_mermaid
-sphinx-exercise
