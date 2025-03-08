@@ -38,7 +38,7 @@ site:
   #     url: https://mystmd.org/guide
   domains: []
   options:
-    favicon: media/logo-p24-favicon.svg
+    favicon: media/favicon-p25.svg
     logo: media/logo-python-numerique.svg
     # very visible in the header
     logo_text: "UE12: Python Numérique"
