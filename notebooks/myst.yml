@@ -1,0 +1,47 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: UE12 & UE22 - numérique
+  # I suspect the intention was maybe to use this for the title tooltip ?
+  # in any case as of now 2024 june the title is used for the tooltip too (a bit silly)
+  # and I can't see where this is used
+  description: "where is this description used?"
+  # this one causes additional buttons to be shown 
+  # in the upper right area (close to the github button)
+  license: CC-BY-NC-SA-4.0
+  # inserted under the title
+  authors:
+    - Thierry Parmentelat
+    - Valérie Roy
+  github: https://github.com/ue12-p24/numerique
+  keywords:
+    - Informatique
+    - MinesParis
+    - PSL
+    - UE12
+    - Python
+    - numpy
+    - pandas
+    - matplotlib
+    - Jupyter
+  date: 2024-06-01
+  # bibliography: []
+
+site:
+  template: book-theme
+  # used in the tab name
+  title: ue12-p24-numerique
+  # this would be for the horizontal header bar - not used here (yet)
+  # nav: []
+  # actions:
+  #   - title: Learn More
+  #     url: https://mystmd.org/guide
+  domains: []
+  options:
+    favicon: media/logo-p24-favicon.svg
+    logo: media/logo-python-numerique.svg
+    # very visible in the header
+    logo_text: "UE12: Python Numérique"
+
+extends:
+  - _myst-toc.yml

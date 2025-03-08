@@ -1,0 +1,77 @@
+version: 1
+
+# ouch: only the .md files are included in the output
+# this is why we have paired all the notebooks with a .md file
+
+# about url links; not supported as of feb 2025; follow up on
+# https://mystmd.org/guide/table-of-contents#url-entries
+# https://github.com/jupyter-book/mystmd/issues/1445
+
+
+project:
+  toc:
+
+    - file: 0-00-intro-nb
+
+    - title: numpy
+      children:
+        - file: 1-01-numpy-introduction-nb.md
+        - file: 1-02-numpy-array-nb.md
+        - file: 1-03-numpy-memory-nb.md
+        - file: 1-04-numpy-vectorization-nb.md
+        - file: 1-05-numpy-indexing-slicing-nb.md
+        - title: TP images (1/2)
+          file: 1-06-imported-images1-nb.md
+          # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/images/README-images1-nb.html
+        - file: 1-07-numpy-aggregate-nb.md
+        - file: 1-08-numpy-broadcast-nb.md
+        - file: 1-09-numpy-array-testing-nb.md
+        - title: TP images (2/2)
+          file: 1-10-imported-images2-nb.md
+          # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/images/README-images2-nb.html
+        - file: 1-11-numpy-TP-dices-advanced-nb.md
+        - title: TP sons
+          file: 1-12-imported-sounds-nb.md
+          # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/sounds/README-sounds-nb.html
+        - file: 1-13-numpy-linalg-optional-nb.md
+        - file: 1-14-numpy-optional-indexing-nb.md
+
+    - title: pandas
+      children:
+        - file: 2-01-pandas-read-csv-nb.md
+        - file: 2-02-pandas-condition-nb.md
+        - file: 2-03-pandas-indexing-slicing-nb.md
+        - file: 2-04-pandas-TP-drop-cast-access-str-nb.md
+        - file: 2-05-pandas-TP-sorting-nb.md
+        - file: 2-06-pandas-matplotlib-nb.md
+        - file: 2-07-pandas-group-by-nb.md
+        - file: 2-08-pandas-create-dataframe-nb.md
+        - file: 2-09-pandas-merge-concat-nb.md
+        - title: TP collages
+          file: 2-09-imported-collages-nb.md
+          # url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/collages/README-collages-nb.html
+        - file: 2-10-timeseries-nb.md
+        - title: "HOWTO: timeseries (les vélos)"
+          file: 2-11-imported-fremont-bridge-nb.md
+          # url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-howtos/fremont-bridge/HOWTO-fremont-bridge-nb.html
+        - title: TP Covid
+          file: 2-12-imported-covid-nb.md
+          # url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/covid/README-covid-nb.html
+          # double check after dedup on the exos side
+        - title: TP géoloc addresses
+          file: 2-13-imported-addresses-nb.md
+          # url: https://flotpython-exos-ds.readthedocs.io/en/main/geo-tps/addresses/README-addresses-nb.html
+
+    - title: visualisation
+      children:
+        - pattern: 3-[0-9]*-nb.md
+    - title: cheatsheets
+      children:
+        - pattern: 4-[0-9]*-nb.md
+    - title: rappels Python
+      children:
+        - pattern: 5-[0-8]*-nb.md
+    # no longer relevant
+    # - title: petit test Python
+    #   children:
+    #     - pattern: 9-[0-9]*-nb.md
