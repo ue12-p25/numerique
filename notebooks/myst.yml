@@ -13,7 +13,7 @@ project:
   authors:
     - Thierry Parmentelat
     - Valérie Roy
-  github: https://github.com/ue12-p24/numerique
+  github: https://github.com/ue12-p25/numerique
   keywords:
     - Informatique
     - MinesParis
@@ -30,7 +30,7 @@ project:
 site:
   template: book-theme
   # used in the tab name
-  title: ue12-p24-numerique
+  title: ue12-p25-numerique
   # this would be for the horizontal header bar - not used here (yet)
   # nav: []
   # actions:
