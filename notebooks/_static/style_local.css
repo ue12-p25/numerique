@@ -2,7 +2,11 @@
  * ----------- specific to this course
  * used in the notebook on memory layout
  */
- .memory {
-    font-size: 180%;
+ .memory > div > pre {
+    color: blue;
     line-height: 1.2;
+
+    code {
+        font-size: 180%;
+    }
 }
