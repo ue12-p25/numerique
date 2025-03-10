@@ -41,6 +41,8 @@ jobs:
           node-version: 18.x
       - name: Install MyST Markdown
         run: npm install -g mystmd
+      - name: Install requirements.txt
+        run: pip install -r requirements.txt
       - name: Build HTML Assets
         run: (cd notebooks; myst build --execute --html)
       - name: Upload artifact
