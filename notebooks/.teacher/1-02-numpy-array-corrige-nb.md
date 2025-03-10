@@ -25,7 +25,7 @@ nbhosting:
 ````{admonition} fonctions de création de tableaux numpy
 
 | les fonctions | ce qu'elles font |
-|-|-|
+|-:|-|
 | `np.array` | renvoie la version ndarray d'un tableau existant |
 | `np.empty` | renvoie un ndarray vide (éléments non initialisés) |
 | `np.zeros` | renvoie un ndarray rempli de *0.* (float) |
@@ -38,7 +38,7 @@ nbhosting:
 ````{admonition} attributs/méthodes de manipulation de tableaux numpy
 
 | attributs/méthodes | ce qu'ils font |
-|-|-|
+|-:|-|
 | `np.ndarray.shape`    | la forme du tableau (tuple) |
 | `np.ndarray.size`     | le nombre d'éléments du tableau |
 | `np.ndarray.ndim`     | le nombre de dimensions du tableau |
@@ -87,7 +87,7 @@ leur type est `numpy.ndarray` (tableau en dimension n)
 attributs et méthodes que nous allons utiliser souvent
 
 | nom                      | comportement                                     |
-|--------------------------|--------------------------------------------------|
+|-------------------------:|--------------------------------------------------|
 | `numpy.ndarray.shape`    | la forme du tableau (tuple)                      |
 | `numpy.ndarray.dtype`    | le type des éléments                             |
 | `numpy.ndarray.astype`   | crée tableau avec nouveau type d'éléments        |
@@ -96,7 +96,7 @@ attributs et méthodes que nous allons utiliser souvent
 ou moins souvent
 
 | nom                      | comportement                                     |
-|--------------------------|--------------------------------------------------|
+|-------------------------:|--------------------------------------------------|
 | `numpy.ndarray.ndim`     | le nombre de dimensions du tableau               |
 | `numpy.ndarray.itemsize` | la taille en octet d'un élément                  |
 | `numpy.ndarray.nbytes`   | la taille totale du tableau sous-jacent en octets |

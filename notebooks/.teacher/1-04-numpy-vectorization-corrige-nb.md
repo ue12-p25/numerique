@@ -241,7 +241,7 @@ et leur contre-partie `numpy` (*Ufuncs*)
 
 
 | opérateur | `numpy` fonction    |
-|----------|-------------------|
+|----------:|-------------------|
 |   `+`    | `np.add` |
 |   `-`    | `np.substract`|
 |   `*`    | `np.multiply` |
@@ -253,12 +253,12 @@ et leur contre-partie `numpy` (*Ufuncs*)
 **les fonctions de comparaison, trigonométriques...**
 
 | fonction         | `numpy` fonction    |
-|------------------|-------------------|
-| comparaison       | `np.greater`, `np.less`, `np.equal`, ...|
-|   valeur absolue       | `np.absolute` or `np.abs` |
-|   trigonometrie   | `np.sin`, `np.cos`, ... |
-|   exponentielle | `np.exp`, `np.exp2`, .. |
-|   logarithme      | `np.log`, `np.log2`, `np.log10` |
+|-----------------:|-------------------|
+| comparaison      | `np.greater`, `np.less`, `np.equal`, ...|
+|   valeur absolue | `np.absolute` or `np.abs` |
+|   trigonometrie  | `np.sin`, `np.cos`, ... |
+|   exponentielle  | `np.exp`, `np.exp2`, .. |
+|   logarithme     | `np.log`, `np.log2`, `np.log10` |
 
 vous allez les utiliser sans même vous en rendre compte !
 ````

@@ -57,7 +57,7 @@ vous devrez spécifier la dimension `axis` dans laquelle vous désirez appliquer
 exemples de fonctions d'agrégation
 
 | fonction | comportement|
-|------|-----|
+|---------:|-----|
 | `np.sum` | somme les éléments sur un axe|
 | `np.min` | retourne le plus petit élément|
 | `np.max` | retourne le plus grand|

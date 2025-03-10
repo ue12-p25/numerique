@@ -36,7 +36,7 @@ ce notebook est utile aux enseignements de mathématiques
 
 
 | fonctions           |   comportement |
-|-----------------|--------|
+|--------------------:|--------|
 | `np.dot` | produit de matrice |
 | `np.linalg.norm` | normes de matrice |
 | `np.transpose` | transposition de matrice |

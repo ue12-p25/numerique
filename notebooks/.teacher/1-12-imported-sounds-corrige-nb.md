@@ -465,7 +465,7 @@ par contre pour les entiers **signés**, on va devoir utiliser **un bit comme bi
 +++
 
 | entier |    int8    |     uint8    |
-|--------|------------|--------------|
+|-------:|------------|--------------|
 | -128   | `10000000` | n/a |
 | -127   | `10000001` | n/a |
 | -126   | `10000010` | n/a |
