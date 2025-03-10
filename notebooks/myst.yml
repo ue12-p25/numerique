@@ -42,6 +42,7 @@ site:
     logo: media/logo-python-numerique.svg
     # very visible in the header
     logo_text: "UE12: Python Numérique"
+    style: "_static/style.css"
 
 extends:
   - _myst-toc.yml
