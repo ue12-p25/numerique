@@ -75,7 +75,7 @@ il y a plein de façons de le faire, google et/ou stackoverflow sont vos amis...
 
 ```{image} media/synthese-additive.png
 :width: 200px
-:align:center
+:align: center
 ```
 
 * pour afficher le tableau `im` comme une image, utilisez: `plt.imshow(im)`

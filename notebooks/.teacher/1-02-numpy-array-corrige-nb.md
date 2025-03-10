@@ -771,7 +771,7 @@ array([[[-0.91543618],
 
 la librairie `numpy.random`
 
-* contient plus de fonctionnalités pour le calcul scientifiques que `random.random`
+* contient plus de fonctionnalités pour le calcul scientifique que `random.random`
 * sait manipuler efficacement des tableaux `numpy.ndarray`
 ````
 

@@ -180,7 +180,7 @@ S3 = S2 + S2_
 S3
 ```
 
-Cet espace des tirage pourra nous resservir dans de futurs exercices.
+Cet espace des tirages pourra nous resservir dans de futurs exercices.
 
 Vous remarquez qu'on est dans une manière de faire qui **explicite l'ensemble des solutions** ce qu'on appelle une méthode en force brute. Ces méthodes sont clairement exponentielles.
 

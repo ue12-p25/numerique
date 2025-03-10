@@ -158,7 +158,7 @@ Vous avez maintenant tous les indices pour généraliser en dimension `n` dès (
 # votre code ici
 ```
 
-Cet espace des tirage pourra nous resservir dans de futurs exercices.
+Cet espace des tirages pourra nous resservir dans de futurs exercices.
 
 Vous remarquez qu'on est dans une manière de faire qui **explicite l'ensemble des solutions** ce qu'on appelle une méthode en force brute. Ces méthodes sont clairement exponentielles.
 

@@ -71,13 +71,21 @@ exemples de fonctions d'agrégation
 | `np.where`  | une condition ternaire |
 | .../...| .../... |
 
-chacune de ces fonctions est aussi une méthode des `numpy.ndarray`
+```{admonition} aussi comme une méthode
+souvent ces fonctions sont aussi une méthode des `numpy.ndarray`  
+c'est-à-dire que `np.sum(myarray)` est équivalent à `myarray.sum()`
+```
 ````
 
 ```{code-cell} ipython3
 # le code
 tab1 = np.arange(10).reshape(2, 5)
-np.power(tab1, 2) + tab1
+
+np.mean(tab1)
+```
+
+```{code-cell} ipython3
+tab1.mean()
 ```
 
 ## agrégation en dimension 1

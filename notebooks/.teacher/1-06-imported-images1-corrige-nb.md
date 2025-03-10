@@ -87,7 +87,7 @@ plt.rc('figure', figsize=(2, 2))
 
 ```{image} media/synthese-additive.png
 :width: 200px
-:align:center
+:align: center
 ```
 
 * pour afficher le tableau `im` comme une image, utilisez: `plt.imshow(im)`

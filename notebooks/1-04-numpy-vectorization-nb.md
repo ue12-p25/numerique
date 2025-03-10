@@ -22,11 +22,9 @@ nbhosting:
 
 ## contenu de ce notebook (sauter si déjà acquis)
 
-la **vectorisation** (c'est-à-dire appliquer une fonction `numpy` à tout un tableau sans passer par un `for-python`)
-
-les `ufunc`
-
-`numpy.vectorize`
+- la **vectorisation** (appliquer une fonction à tout un tableau sans passer par un `for-python`)
+- les `ufunc`
+- `numpy.vectorize`
 
 ```{code-cell} ipython3
 # on importe la librairie numpy
@@ -43,11 +41,9 @@ from matplotlib import pyplot as plt
 **l'idée**  
 pour appliquer une fonction à tous les éléments d'un tableau `numpy`
 
-* de ne **jamais** utiliser une boucle `for-python`  
-
-* mais d'appliquer la fonction (ou l'opérateur)  
+* ne **jamais** utiliser une boucle `for-python`  
+* mais appliquer la fonction (ou l'opérateur)  
   **directement au tableau** - de manière *vectorisée*
-
 * c'est plus concis à écrire, vos codes sont plus rapides, plus lisibles !
 et pourront être optimisés en temps
 

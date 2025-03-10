@@ -28,14 +28,10 @@ from matplotlib import pyplot as plt
 
 ## contenu de ce notebook (sauter si déjà acquis)
 
-
-ce notebook détaille les manières d'accéder à des éléments et de slicer des tableaux `numpy`
-
-les slices sont des vues et non des copies
-
-la notion de `numpy.ndarray.base`
-
-voir les `exercices avancés pour les rapides`
+* les manières d'accéder à des éléments et de slicer un tableau `numpy`
+* les slices sont des vues et non des copies
+* la notion de `numpy.ndarray.base`
+* voir les `exercices avancés pour les rapides`
 
 +++ {"tags": ["framed_cell"]}
 
