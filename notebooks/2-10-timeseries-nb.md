@@ -406,7 +406,7 @@ ces deux fonctions travaillent de la même façon:
   (comme d'habitude avec `mean()`, `sum()`, `min()`,…)
 
 voyons pour commencer comment les corbeilles sont construites par ces deux fonctions
-```
+````
 
 +++
 
