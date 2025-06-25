@@ -35,6 +35,8 @@ project:
           # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/sounds/README-sounds-nb.html
         - file: 1-13-numpy-linalg-optional-nb.md
         - file: 1-14-numpy-optional-indexing-nb.md
+        - pattern: .teacher/1*-corrige-nb.md
+          hidden: true
 
     - title: pandas
       children:
@@ -61,10 +63,14 @@ project:
         - title: TP géoloc addresses
           file: 2-13-imported-addresses-nb.md
           # url: https://flotpython-exos-ds.readthedocs.io/en/main/geo-tps/addresses/README-addresses-nb.html
+        - pattern: .teacher/2*-corrige-nb.md
+          hidden: true
 
     - title: visualisation
       children:
         - pattern: 3-[0-9]*-nb.md
+        - pattern: .teacher/3*-corrige-nb.md
+          hidden: true
     - title: cheatsheets
       children:
         - pattern: 4-[0-9]*-nb.md

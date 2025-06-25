@@ -43,6 +43,7 @@ site:
     # very visible in the header
     logo_text: "UE12: Python Numérique"
     style: "_static/style.css"
+    folders: true
 
 extends:
   - _myst-toc.yml
