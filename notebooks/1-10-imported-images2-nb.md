@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: suite du TP simple avec des images
 ---
@@ -146,6 +146,20 @@ def patchwork(colors, colormap, side=10):
     """
     """
     ...
+```
+
+```{code-cell} ipython3
+# votre code
+
+# affichez le résultat obtenu avec ce jeu de couleurs
+
+colors = [
+    'DarkBlue', 'AntiqueWhite', 'LimeGreen', 'NavajoWhite',
+    'Tomato', 'DarkGoldenrod', 'LightGoldenrodYellow', 'OliveDrab',
+    'Red', 'Lime',
+]
+
+# plt.imshow(...)
 ```
 
 4. Tirez aléatoirement une liste de couleurs et appliquez votre fonction à ces couleurs.

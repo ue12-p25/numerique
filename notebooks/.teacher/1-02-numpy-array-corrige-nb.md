@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: les tableaux
 ---
@@ -398,6 +398,8 @@ l = [[  0,   8,  34,   8],
 ```
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 # prune-cell
 l = [[  0,   8,  34,   8],
      [255,  61, 128, 254]]

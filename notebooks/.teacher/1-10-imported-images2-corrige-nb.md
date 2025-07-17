@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: suite du TP simple avec des images
 ---
@@ -191,7 +191,7 @@ def patchwork(colors, colormap, side=10):
     ...
 ```
 
-````{code-cell} ipython3
+```{code-cell} ipython3
 # prune-cell 3.b
 
 def patchwork (col_list, col_dict, side=5, background='White'):
@@ -238,6 +238,7 @@ def patchwork (col_list, col_dict, side=5, background='White'):
 
     # so all we are left with is .. a simple array-by-array indexation
     return colormap[pattern]
+```
 
 ```{code-cell} ipython3
 # votre code
@@ -251,7 +252,7 @@ colors = [
 ]
 
 # plt.imshow(...)
-````
+```
 
 ```{code-cell} ipython3
 # prune-cell

@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: TP - un peu de musique
 ---
@@ -223,8 +223,8 @@ def sine_linear(freq1, freq2, duration):
 ```{code-cell} ipython3
 :tags: [level_intermediate]
 
-# pour écouter
-MyAudio(sine_linear(440, 660, 3))
+# décommenter pour écouter
+#MyAudio(sine_linear(440, 660, 3))
 ```
 
 ## réglage du volume
@@ -248,8 +248,8 @@ crescendo_la_1seconde = ...
 ```
 
 ```{code-cell} ipython3
-# pour écouter
-MyAudio(crescendo_la_1seconde) #, autoplay=True)
+# décommenter pour écouter
+#MyAudio(crescendo_la_1seconde) #, autoplay=True)
 ```
 
 2. en faire une fonction
@@ -266,8 +266,8 @@ def crescendo_sine(freq, duration):
 ```
 
 ```{code-cell} ipython3
-# pour écouter
-MyAudio(crescendo_sine(LA, 2)) #, autoplay=True)
+# décommenter pour écouter
+#MyAudio(crescendo_sine(LA, 2)) #, autoplay=True)
 ```
 
 3. ajouter un paramètre pour pouvoir décroître
@@ -283,9 +283,8 @@ def crescendo_sine(freq, duration, increase=True):
 ```
 
 ```{code-cell} ipython3
-# pour écouter
-
-MyAudio(crescendo_sine(LA, 2, increase=False)) #, autoplay=True)
+# décommenter pour écouter
+#MyAudio(crescendo_sine(LA, 2, increase=False)) #, autoplay=True)
 ```
 
 4. avancés:
@@ -320,9 +319,9 @@ la_do = ...
 ```
 
 ```{code-cell} ipython3
-# pour écouter
+# décommenter pour écouter
 
-MyAudio(la_do, autoplay=True)
+#MyAudio(la_do, autoplay=True)
 ```
 
 ## amplitude et types
@@ -435,15 +434,16 @@ def float_to_int16(as_float):
 ```{code-cell} ipython3
 :cell_style: split
 
-# pour écouter
-MyAudio(float_to_int16(la_do), autoplay=True)
+# décommenter pour écouter
+#MyAudio(float_to_int16(la_do), autoplay=True)
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
 
+# décommenter pour écouter
 # sans conversion
-MyAudio(la_do, autoplay=True)
+#MyAudio(la_do, autoplay=True)
 ```
 
 ## fréquences des notes de la gamme
