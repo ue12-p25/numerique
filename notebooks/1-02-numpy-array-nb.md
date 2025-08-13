@@ -4,16 +4,12 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-language_info:
-  name: python
-  pygments_lexer: ipython3
-  nbconvert_exporter: python
-nbhosting:
-  title: les tableaux
 ---
 
 # les tableaux
@@ -71,6 +67,36 @@ qu'il faut installer séparément (`pip install numpy` dans le terminal)
 ```{code-cell} ipython3
 import numpy as np
 ```
+
++++ {"tags": ["framed_cell"]}
+
+## tableaux  multi-dimensionnels `numpy`
+
+````{admonition} →
+
+créés par la méthode `numpy.array`  
+(ici plus précisément `np.array` comme l'identifiant utilisé lors de l'import est `np` mais on reste genéral)
+
+
+leur type est `numpy.ndarray` (tableau en dimension n)
+
+attributs et méthodes que nous allons utiliser souvent
+
+| nom                      | comportement                                     |
+|-------------------------:|--------------------------------------------------|
+| `numpy.ndarray.shape`    | la forme du tableau (tuple)                      |
+| `numpy.ndarray.dtype`    | le type des éléments                             |
+| `numpy.ndarray.astype`   | crée tableau avec nouveau type d'éléments        |
+
+
+ou moins souvent
+
+| nom                      | comportement                                     |
+|-------------------------:|--------------------------------------------------|
+| `numpy.ndarray.ndim`     | le nombre de dimensions du tableau               |
+| `numpy.ndarray.itemsize` | la taille en octet d'un élément                  |
+| `numpy.ndarray.nbytes`   | la taille totale du tableau sous-jacent en octets |
+````
 
 +++ {"tags": ["framed_cell"]}
 
@@ -358,8 +384,6 @@ print(mat.dtype)
 ```
 
 ```{code-cell} ipython3
-:scrolled: true
-
 # le code avec type
 matrice = [
     [-128, -78, -32],
@@ -856,7 +880,6 @@ ne pas mettre la création de la liste Python dans le calcul du temps
 * lequel est le plus rapide ?
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 0
 :tags: [level_intermediate]
 
 # votre code ici

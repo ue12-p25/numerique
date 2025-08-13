@@ -4,16 +4,12 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-language_info:
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-nbhosting:
-  title: vectorisation
 ---
 
 # vectorisation
@@ -158,8 +154,6 @@ indices
 4. tracez la courbe de la fonction
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 1
-
 # votre code ici
 def scalar_function(x):
     pass
