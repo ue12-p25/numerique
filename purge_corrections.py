@@ -2,21 +2,21 @@
 
 import ast
 import ast_comments
-
-
-# list all marimo (.py) files in the current directory
-import glob
-
 from pathlib import Path
 
 marimo_dir = Path(__file__).parent / "marimo"
 marimo_student_version_dir = marimo_dir / "student_version"
 
 
-files_to_process = marimo_dir.glob("*.py") # all the marimo files in the marimo directory
+files_to_process = sorted(
+    marimo_dir.glob("*.py"),
+    key=lambda x: x.name,
+)  # all the marimo files in the marimo directory (as a list since we run through it twice)
 
+max_file_name_length = max(len(file.name) for file in files_to_process)
 
 for file in files_to_process:
+    print(f"PURGING {file.name + "...":<{max_file_name_length+3}}", end="")
     tree = ast_comments.parse(file.read_text(), file.name)
 
     # for decl in tree.body:
@@ -29,10 +29,13 @@ for file in files_to_process:
                     # decl.body = [ast.Pass()]
                     nodes_to_remove.append(decl)
 
-    print(tree.body)
     for node in nodes_to_remove:
         tree.body.remove(node)
+
+    print(" ✅")
 
     output_file = marimo_student_version_dir / file.name
     output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_text(ast_comments.unparse(tree), encoding="utf-8")
+
+print("FINITO 🎉")

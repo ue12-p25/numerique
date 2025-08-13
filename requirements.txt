@@ -18,6 +18,10 @@ jupyterlab-myst
 ipywidgets
 ipympl
 
+# marimo
+marimo
+ast_comments
+
 # for authors only
 # nbprune
 # jupyter-book
