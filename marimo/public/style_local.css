@@ -1,0 +1,12 @@
+/*
+ * ----------- specific to this course
+ * used in the notebook on memory layout
+ */
+.memory pre {
+  color: blue;
+  line-height: 1.2;
+
+  code {
+    font-size: 220%;
+  }
+}

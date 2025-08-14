@@ -5,16 +5,12 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-language_info:
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-nbhosting:
-  title: indexation et *slicing*
 ---
 
 # indexation et *slicing*
@@ -117,8 +113,6 @@ OUI on peut, parce que
 ``````
 
 ```{code-cell} ipython3
-:scrolled: true
-
 # le code
 tab = np.arange(12)
 tab[0] = np.pi
@@ -228,8 +222,6 @@ tab
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
-
 [tab.shape[i] for i in range(tab.ndim)]
 ```
 

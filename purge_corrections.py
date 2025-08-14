@@ -11,7 +11,7 @@ marimo_student_version_dir = marimo_dir / "student_version"
 files_to_process = sorted(
     marimo_dir.glob("*.py"),
     key=lambda x: x.name,
-)  # all the marimo files in the marimo directory (as a list since we run through it twice)
+)  # all the marimo files in the marimo directory (sorted by name)
 
 max_file_name_length = max(len(file.name) for file in files_to_process)
 
@@ -32,10 +32,10 @@ for file in files_to_process:
     for node in nodes_to_remove:
         tree.body.remove(node)
 
-    print(" ✅")
-
     output_file = marimo_student_version_dir / file.name
     output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_text(ast_comments.unparse(tree), encoding="utf-8")
+
+    print(" ✅")
 
 print("FINITO 🎉")
