@@ -11,7 +11,7 @@ version: 1
 project:
   toc:
 
-    - file: 0-00-intro-nb
+    - file: 0-00-intro-nb.md
 
     - title: numpy
       children:

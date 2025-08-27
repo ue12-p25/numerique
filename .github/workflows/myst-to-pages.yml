@@ -26,6 +26,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+
 # this is no longer needed as we serve from info-mines.paris
 # required for MyST
 # env:
