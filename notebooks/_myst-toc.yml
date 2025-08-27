@@ -50,19 +50,19 @@ project:
         - file: 2-08-pandas-create-dataframe-nb.md
         - file: 2-09-pandas-merge-concat-nb.md
         - title: TP collages
-          file: 2-09-imported-collages-nb.md
-          # url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/collages/README-collages-nb.html
+          # file: 2-09-imported-collages-nb.md
+          url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/collages/README-collages-nb.html
         - file: 2-10-timeseries-nb.md
-        - title: "HOWTO: timeseries (les vélos)"
-          file: 2-11-imported-fremont-bridge-nb.md
-          # url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-howtos/fremont-bridge/HOWTO-fremont-bridge-nb.html
+        - title: "HOWTO: les vélos (timeseries)"
+          # file: 2-11-imported-fremont-bridge-nb.md
+          url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-howtos/fremont-bridge/HOWTO-fremont-bridge-nb.html
         - title: TP Covid
-          file: 2-12-imported-covid-nb.md
-          # url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/covid/README-covid-nb.html
+          # file: 2-12-imported-covid-nb.md
+          url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/covid/README-covid-nb.html
           # double check after dedup on the exos side
         - title: TP géoloc addresses
-          file: 2-13-imported-addresses-nb.md
-          # url: https://flotpython-exos-ds.readthedocs.io/en/main/geo-tps/addresses/README-addresses-nb.html
+          # file: 2-13-imported-addresses-nb.md
+          url: https://flotpython-exos-ds.readthedocs.io/en/main/geo-tps/addresses/README-addresses-nb.html
         - pattern: .teacher/2*-corrige-nb.md
           hidden: true
 
