@@ -38,7 +38,12 @@ site:
   #     url: https://mystmd.org/guide
   domains: []
   options:
-    favicon: media/favicon-p25.svg
+    # workaround for https://github.com/jupyter-book/mystmd/issues/1985#issuecomment-3232330240
+    # we have converted the svg to ico
+    # for that in Inkscape: set size as a square 72x72
+    # and use Path -> Object to Path to convert the text to a path
+    # and so, remove the dependency to font
+    favicon: media/favicon-p25.svg.ico
     logo: media/logo-python-numerique.svg
     # very visible in the header
     logo_text: "UE12: Python Numérique"
