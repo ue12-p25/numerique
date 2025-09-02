@@ -28,7 +28,17 @@ project:
   # bibliography: []
 
 site:
-  template: book-theme
+  # template: book-theme
+  #
+  # various attempts to work around https://github.com/jupyter-book/myst-theme/issues/635
+  # trying to pin an older version of myst-theme
+  #
+  # picked from https://github.com/myst-templates/book-theme/commits/main/
+  # pin to 0.16.0 -> still broken
+  # template: "https://github.com/myst-templates/book-theme/archive/b4f7ed0e437f59750d1702028c2c39cd87e47eaa.zip"
+  # pin to 0.15.2
+  template: "https://github.com/myst-templates/book-theme/archive/cff6f8852595cc39843bc984902a70453a5731c0.zip"
+
   # used in the tab name
   title: ue12-p25-numerique
   # this would be for the horizontal header bar - not used here (yet)
