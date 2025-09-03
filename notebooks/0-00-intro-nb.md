@@ -14,11 +14,6 @@ language_info:
 ---
 
 # Python numérique
-+++
-
-Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
-
-+++
 
 ## contenu de ce module: numpy, pandas et matplotlib
 
@@ -126,5 +121,20 @@ si vous voulez essayer d'utiliser ce système, [voyez cette page dans le cours d
 Comme indiqué dans cette page, il est **crucial** de s'assurer que votre "prompt" bash (ce qui est affiché avant le `$` lorsque vous avez la main dans le terminal) vous indique en permanence dans quel environnement vous vous trouvez.
 ````
 
-
 ***
+
++++
+
+## publication
+
+* ce cours est publié sur [https://numerique.info-mines.paris](https://numerique.info-mines.paris) ![the badge](https://github.com/ue12-p25/numerique/actions/workflows/myst-to-pages.yml/badge.svg)
+
+* les sources de ce cours sur github:
+  <https://github.com/ue12-p25/numerique>
+
++++
+
+## licence
+
+tout le contenu de ce cours est sous licence CC BY-NC-ND, Valérie Roy & Thierry
+Parmentelat
