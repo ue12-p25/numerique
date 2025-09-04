@@ -31,8 +31,8 @@ project:
           # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/images/README-images2-nb.html
         - file: 1-11-numpy-TP-dices-advanced-nb.md
         - title: TP sons
-          file: 1-12-imported-sounds-nb.md
-          # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/sounds/README-sounds-nb.html
+          # file: 1-12-imported-sounds-nb.md
+          url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/sounds/README-sounds-nb.html
         - file: 1-13-numpy-linalg-optional-nb.md
         - file: 1-14-numpy-optional-indexing-nb.md
         - pattern: .teacher/1*-corrige-nb.md
