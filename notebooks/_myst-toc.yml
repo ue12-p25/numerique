@@ -63,6 +63,7 @@ project:
         - title: TP géoloc addresses
           # file: 2-14-imported-addresses-nb.md
           url: https://flotpython-exos-ds.readthedocs.io/en/main/geo-tps/addresses/README-addresses-nb.html
+        - file: 2-15-itables-nb.md
         - pattern: .teacher/2*-corrige-nb.md
           hidden: true
 

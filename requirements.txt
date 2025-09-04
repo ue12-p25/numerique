@@ -17,6 +17,7 @@ jupyterlab-courselevels
 jupyterlab-myst
 ipywidgets
 ipympl
+itables
 
 # for authors only
 # nbprune
