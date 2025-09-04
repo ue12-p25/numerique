@@ -12,8 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: "indexation et acc\xE8s aux sous-tableaux"
 ---
 
 # indexation et accès aux sous-tableaux

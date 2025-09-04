@@ -13,8 +13,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: exercice sur le *broadcasting*
 ---
 
 # exercice sur le *broadcasting*

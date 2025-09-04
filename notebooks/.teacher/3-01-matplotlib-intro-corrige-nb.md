@@ -13,8 +13,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: "Python-num\xE9rique - visualisation des donn\xE9es"
 ---
 
 # Python-numérique - visualisation des données

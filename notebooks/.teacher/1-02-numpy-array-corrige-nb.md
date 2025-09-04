@@ -12,8 +12,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
   nbconvert_exporter: python
-nbhosting:
-  title: les tableaux
 ---
 
 # les tableaux

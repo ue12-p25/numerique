@@ -14,8 +14,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: "indexation avanc\xE9e"
 ---
 
 # indexation avancée

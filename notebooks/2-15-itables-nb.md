@@ -13,8 +13,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
   nbconvert_exporter: python
-nbhosting:
-  title: "Les v\xE9los sur le pont de Fremont"
 ---
 
 # exploration interactive

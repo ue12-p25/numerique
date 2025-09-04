@@ -12,8 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: "r\xE9f\xE9rences partag\xE9es"
 ---
 
 # références partagées

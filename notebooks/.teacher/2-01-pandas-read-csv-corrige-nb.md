@@ -12,8 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: "Python-num\xE9rique - les tables de donn\xE9es"
 ---
 
 # Python-numérique - les tables de données

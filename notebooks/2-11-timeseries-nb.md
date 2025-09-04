@@ -13,8 +13,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: "Les v\xE9los sur le pont de Fremont"
 ---
 
 # timeseries en pandas

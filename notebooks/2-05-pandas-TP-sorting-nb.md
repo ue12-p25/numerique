@@ -13,8 +13,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: TP sur le tri d'une dataframe
 ---
 
 # TP sur le tri d'une dataframe

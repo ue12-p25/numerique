@@ -12,8 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: "objets, types et m\xE9thodes"
 ---
 
 # objets, types et méthodes

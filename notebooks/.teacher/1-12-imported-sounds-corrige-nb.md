@@ -14,8 +14,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
   nbconvert_exporter: python
-nbhosting:
-  title: TP - un peu de musique
 ---
 
 # TP - un peu de musique

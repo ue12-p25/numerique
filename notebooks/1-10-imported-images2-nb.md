@@ -13,8 +13,6 @@ language_info:
   name: python
   pygments_lexer: ipython3
   nbconvert_exporter: python
-nbhosting:
-  title: suite du TP simple avec des images
 ---
 
 # TP images (2/2)
