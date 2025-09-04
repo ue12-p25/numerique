@@ -33,15 +33,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-## un exemple
+## le package `itables`
 
 +++
 
 le plus simple c'est de voir un exemple; naturellement il faut avoir d'abord installé le package `itables`
 
-#%pip install itables
+```bash
+pip install itables
+```
 
 ensuite depuis le notebook il faut initialiser le mode interactif; c'est un peu comme le `%matplotlib ipympl` si on veut; ça se présenterait comme ceci
+
 ```python
 # pour activer itables depuis un notebook
 from itables import init_notebook_mode
