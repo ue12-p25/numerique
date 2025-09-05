@@ -1,16 +1,9 @@
 {
-  "build": {
-    "dockerfile": "../Dockerfile"
-  },
-  "hostRequirements": {
-    "cpus": 4
-  },
-  "workspaceFolder": "/workspace",
-  "forwardPorts": [8888],
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
   "customizations": {
     "codespaces": {
-      "openFiles": []
+      "openFiles": ["README.md"]
     },
     "vscode": {
       "settings": {
