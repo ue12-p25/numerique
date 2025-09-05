@@ -1,6 +1,6 @@
 # Notebooks du cours de Python Numérique
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ue12-p25/numerique/tree/codespaces)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ue12-p25/numerique/tree/main)
 
 
 Ce dépôt contient une série de notebooks de cours à destination des élèves de première année.
