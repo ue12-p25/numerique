@@ -1,16 +1,21 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
   "hostRequirements": {
     "cpus": 4
   },
-  "waitFor": "onCreateCommand",
-  "updateContentCommand": "python3 -m pip install -r requirements.txt",
-  "postCreateCommand": "",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [8888],
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
   "customizations": {
     "codespaces": {
       "openFiles": []
     },
     "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
       "extensions": ["ms-toolsai.jupyter", "ms-python.python"]
     }
   }
