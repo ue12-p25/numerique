@@ -32,7 +32,7 @@ jupyter:
 
 jupyter/%.ipynb: notebooks/%.md jupyter
 	@echo "👉 Converting $< to $@...  "
-	@jupytext --from py:percent --to ipynb "$<" -o "$@" >>/dev/null
+	@jupytext --from md:myst --to ipynb "$<" -o "$@" >>/dev/null
 
 jupyter/%.ipynb: notebooks/%.py jupyter
 	@echo "👉 Converting $< to $@...  "
