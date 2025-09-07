@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # indexation et *slicing*
@@ -115,8 +115,6 @@ OUI on peut, parce que
 ``````
 
 ```{code-cell} ipython3
-:scrolled: true
-
 # le code
 tab = np.arange(12)
 tab[0] = np.pi
@@ -165,13 +163,13 @@ mat, line, col = 1, 2, 0
 
 tab[mat, line, col] = 2000
 tab
--> array([[[   0, 10],
-           [   2,  3],
-           [   4,  5]],
-
-          [[   6,  7],
-           [   8,  9],
-           [2000, 11]]])
+-> array([[[   0, 1000],
+           [   2,    3],
+           [   4,    5]],
+    
+          [[   6,    7],
+           [   8,    9],
+           [2000,   11]]])
 ```
 
 ````{admonition} rappel
@@ -240,7 +238,7 @@ tab.shape
 +++
 
 **accès à un élément**  
-1. créez un tableau des 30 valeurs paires à partir de 2
+1. créez un tableau des 30 valeurs paires à partir de 2 (utilisez `numpy` pas `Python`)
 
 
 2. donnez lui la forme de 2 matrices de 5 lignes et 3 colonnes
@@ -514,7 +512,7 @@ tab[:, 0]
 tab = np.arange(120).reshape(2, 3, 4, 5)
 ```
 
-la sous-matrice au milieu (i.e. garder deux lignes et 3 colonnes, au centre) des premières matrices de tous les groupes
+la sous-matrice au milieu des premières matrices de tous les groupes, ici ça doit donner:
 
 $\begin{bmatrix}\begin{bmatrix} 6 & 7 & 8\\ 11 & 12 & 13 \end{bmatrix}, \begin{bmatrix} 66 & 67 & 68 \\ 71 & 72 & 73 \end{bmatrix}\end{bmatrix}$  
 
@@ -559,7 +557,7 @@ parce que coûteux (pénalisés) en place mémoire
 
 **donc lors d'un slicing**
 
-* un nouvel objet `np.ndarray` est bien créé,
+* un nouvel objet `np.ndarray` est bien créé
 * son indexation est différente de celle de l'objet `np.ndarray` initial
 * mais ils **partagent** la mémoire (le segment unidimensionnel sous-jacent)
 
@@ -832,7 +830,7 @@ def checkers(n, up_left=True):
 
 def checkers(n, up_left = True):
     I, J = np.indices((n, n))
-    return (I + J + up_left) % 2
+    return (I + J + up_left) % 2 # using slicing will take much longer !
 ```
 
 ```{code-cell} ipython3
