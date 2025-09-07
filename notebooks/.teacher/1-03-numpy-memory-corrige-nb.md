@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # la mémoire
@@ -25,7 +25,7 @@ avoir une intuition de ce qui se passe dans en mémoire pour un `numpy.ndarray`
 > *An array object represents a multidimensional, **homogeneous** array of **fixed-size** items.*
 
 * indiçage des tableaux `numpy`
-* modification de la taille des tableaux `numpy` avec `numpy.resize` et `numpy.reshape` (la mémoire sous-jacente est partagée)
+* modification de la forme des tableaux `numpy` avec `numpy.resize` et `numpy.reshape` (la mémoire sous-jacente est partagée)
 * indirection versus décalage (*offset*)
 
 +++ {"tags": ["framed_cell"]}
@@ -608,4 +608,8 @@ print(f"before {tab1=}")
 tab[0] = 99
 print(f"after {tab=}")
 print(f"after {tab1=}")
+```
+
+```{code-cell} ipython3
+
 ```
