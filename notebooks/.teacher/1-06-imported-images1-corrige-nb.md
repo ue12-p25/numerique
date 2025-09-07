@@ -624,7 +624,7 @@ plt.show()
 3. Transformer l'image en deux images en niveaux de gris :  
 a. en mettant pour chaque pixel la moyenne de ses valeurs R, G, B  
 b. en utilisant la correction `Y` (qui corrige le constrate) basée sur la formule  
-   `G = 0.299 * R + 0.587 * V + 0.114 * B`
+   `Y = 0.299 * R + 0.587 * G + 0.114 * B`  
 c. optionnel: si vous pensez à plusieurs façons de faire la question a., utilisez `%%timeit` pour les benchmarker et choisir la plus rapide
 
 ```{code-cell} ipython3
