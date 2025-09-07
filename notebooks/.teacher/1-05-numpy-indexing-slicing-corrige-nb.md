@@ -830,7 +830,7 @@ def checkers(n, up_left=True):
 
 def checkers(n, up_left = True):
     I, J = np.indices((n, n))
-    return (I + J + up_left) % 2 # using slicing will take much longer !
+    return (I + J + up_left) % 2
 ```
 
 ```{code-cell} ipython3
