@@ -28,6 +28,7 @@ language_info:
 | `np.empty` | renvoie un ndarray vide (éléments non initialisés) |
 | `np.zeros` | renvoie un ndarray rempli de *0.* (float) |
 | `np.ones` | renvoie un ndarray rempli de *1.* (float) |
+| `numpy.arange` | tableau de valeurs régulièrement espacées|
 | `np.linspace` | un vecteur de valeurs bien espacées entre deux bornes |
 | `np.random.randint` | entiers aléatoirement générés |
 | `np.random.randn` | flottants aléatoirement générés |
@@ -356,8 +357,6 @@ print(mat.dtype)
 ```
 
 ```{code-cell} ipython3
-:scrolled: true
-
 # le code avec type
 matrice = [
     [-128, -78, -32],
@@ -665,7 +664,7 @@ print(tab) # n'importe quelles valeurs entre -128 et 127
 `numpy.linspace(from-included, to-included, n)`
 
 * `n` réels régulièrement espacés dans un intervalle
-* la valeur supérieure de l'intervalle **est** incluse
+* la valeur supérieure de l'intervalle **est** incluse (par défaut)
 ````
 
 ```{code-cell} ipython3
