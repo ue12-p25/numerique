@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # fonctions d'agrégation
@@ -225,7 +225,7 @@ def fake_none(tab):
 ```{code-cell} ipython3
 # prune-cell
 def fake_all(tab):
-    return np.sum(tab) == 1
+    return np.sum(tab) == tab.size
 def fake_none(tab):
     return np.sum(tab) == 0
 ```
