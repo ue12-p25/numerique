@@ -45,17 +45,20 @@ ensuite depuis le notebook il faut initialiser le mode interactif; c'est un peu 
 
 ```python
 # pour activer itables depuis un notebook
-from itables import init_notebook_mode
 
-init_notebook_mode(all_interactive=True)
+import itables
+itables.init_notebook_mode()
 ```
 
 ```{code-cell} ipython3
-# on ne le fait pas pour la sortie HTML parce que ça ne marche pas du tout dans ce contexte-là
-# mais si vous lisez ceci depuis un notebook vous n'avez qu'à décommenter ces deux lignes
+import itables
 
-# from itables import init_notebook_mode
-# init_notebook_mode(all_interactive=True)
+# le mieux c'est de lire ceci dans un notebook
+# car dans les supports en HTML ça ne marche pas du tout
+# et ça casse même l'affichage usuel
+# (mais vous avez un aperçu statique ci-dessous)
+
+itables.init_notebook_mode()
 ```
 
 et de là on peut afficher les dataframes comme d'habitude, et explorer les données interactivement:
@@ -81,7 +84,53 @@ et maintenant chaque fois que j'affiche une dataframe j'obtiens ce genre de repr
 df
 ```
 
+## options
+
+on peut modifier le comportement par défaut; voici quelques idiomes utiles, [allez voir la doc](https://mwouts.github.io/itables) pour plus de détails
+
+```{code-cell} ipython3
+# offer more choices in the pagination menu
+itables.options.lengthMenu = [3, 5, 10, 25, 50, -1]
+
+# which of these should be the default page size
+itables.options.pageLength = 5
+
+# allow for more space
+itables.options.maxBytes = "128KB"
+```
+
+```{code-cell} ipython3
+:scrolled: true
+
+df
+```
+
+## `itables.show()`
+
+si vous avez besoin d'appeler explicitement la mise en page d'une dataframe, vous pouvez faire simplement ceci
+
+```python
+itables.show(df)
+```
+
++++
+
+et ça peut être utile, par exemple pour lui passer des options spécifiques
+
+```{code-cell} ipython3
+# pour afficher par "Pclass" croissant - c'est la 3éme colonne
+
+itables.show(df, pageLength=3, order=[[2, "asc"]])
+```
+
+qui donnerait ceci
+
+```{image} media/itables-options.png
+```
+
++++
+
 ## voir aussi
 
-un blog sur cet outil ici  
-<https://blog.jupyter.org/make-your-pandas-or-polars-dataframes-interactive-with-itables-2-0-c64e75468fe6>
+- [la documentation](https://mwouts.github.io/itables)
+- [un blog sur cet outil](https://blog.jupyter.org/make-your-pandas-or-polars-dataframes-interactive-with-itables-2-0-c64e75468fe6)
