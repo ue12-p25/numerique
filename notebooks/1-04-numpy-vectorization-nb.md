@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # vectorisation
@@ -211,7 +211,7 @@ et leur contre-partie `numpy` (*Ufuncs*)
 |   `*`    | `np.multiply` |
 |   `/`    | `np.divide` |
 |   `//`   | `np.floor_divide` |
-|   `\%`   | `np.mod` |
+|   `%`   | `np.mod` |
 |   `**`   | `np.power` |
 
 **les fonctions de comparaison, trigonométriques...**
