@@ -20,9 +20,9 @@ language_info:
 
 ## contenu de ce notebook (sauter si déjà acquis)
 
-- la **vectorisation** (appliquer une fonction à tout un tableau sans passer par un `for-python`)
-- les `ufunc`
-- `numpy.vectorize`
+* la **vectorisation** (appliquer une fonction à tout un tableau sans passer par un `for-python`)
+* les `ufunc`
+* `numpy.vectorize`
 
 ```{code-cell} ipython3
 # on importe la librairie numpy
@@ -40,8 +40,7 @@ from matplotlib import pyplot as plt
 pour appliquer une fonction à tous les éléments d'un tableau `numpy`
 
 * ne **jamais** utiliser une boucle `for-python`  
-* mais appliquer la fonction (ou l'opérateur)  
-  **directement au tableau** - de manière *vectorisée*
+* mais appliquer la fonction (ou l'opérateur) **directement au tableau** - de manière *vectorisée*
 * c'est plus concis à écrire, vos codes sont plus rapides, plus lisibles !
 et pourront être optimisés en temps
 
@@ -114,8 +113,8 @@ dans une première version de ce notebook, pour cette deuxième - et mauvaise - 
 - on avait utilisé `np.sin` au lieu de `math.sin`; merci à Damien Corral qui a remarqué que `np.sin` appliqué à un scalaire Python ajoute une inefficacité !  
 - et de plus on rangeait les résultats dans une liste, ce qui aggrave encore les écarts
 
-après ces corrections, qui permettent de mieux isoler la perte d'efficacité, on observe toujours un rapport de 1 à 10 !
-(et en plus on ne garde même pas les résultats du calcul)
+après ces corrections, qui permettent de mieux isoler la perte d'efficacité, on observe toujours un rapport de performance important !
+alors qu'on ne garde même pas les résultats du calcul...
 ````
 
 +++
@@ -291,16 +290,16 @@ np.power
 :class: admonition-small
 
 le but du jeu ici c'est de voir comment vectoriser une fonction **que vous écrivez vous**  
-on s'interdit donc, dans cet exercice, d'utiliser des fonctions de `numpy`, ni la fonction *builtin* `abs` de Python
 
 si vous préférez, vous pouvez choisir d'implémenter une fonction définie par morceaux  
-genre $x**2$ sur les nombres négatifs et $x^3$ sur les positifs
+genre $x^2$ sur les nombres négatifs et $x^3$ sur les positifs
 ````
 
-1. écrivez une fonction qui calcule la valeur absolue d'un scalaire x  `absolute(x)`
-2. testez votre fonction sur des scalaires
-3. créez un `np.ndarray` de scalaires et appliquez-lui la fonction
-4. que se passe-t-il ?
+1. écrivez une fonction qui calcule la valeur absolue d'un scalaire x `absolute(x)`  
+   on s'interdit donc, dans cet exercice, d'utiliser des fonctions de `numpy`, ni la fonction *builtin* `abs` de Python
+1. testez votre fonction sur des scalaires
+1. créez un `np.ndarray` de scalaires et appliquez-lui la fonction
+1. que se passe-t-il ?
 
 ```{code-cell} ipython3
 # votre code ici
@@ -326,15 +325,11 @@ except ValueError as e:
 
 ### problème de la fonction `absolute`
 
-`````{admonition} →
-```python
-----> if x >= 0:
-ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
-```
+`````{admonition} que se passe-t-il ?
 
 supposons que votre code soit:
 
-```python
+````python
 def absolute (x):
     if x >= 0:
         return x
@@ -343,22 +338,34 @@ def absolute (x):
 tab = np.array([10, -30, 56.5])
 
 absolute(tab)                   # --> BOOM
-```
+````
 
-l'expression `x >= 0` appliquée à `tab` rend le tableau `array([False, True, False])`
+alors vous obtenez
 
-`if` appliqué au tableau de booléens `[False, True, False]` ne sait pas quoi faire  
+````python
+----> if x >= 0:
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+````
+
+car l'expression `x >= 0` appliquée à `tab` rend le tableau `array([False, True, False])`
+
+mais le `if`, appliqué au tableau de booléens `[False, True, False]`, ne sait pas quoi faire !  
 alors il propose des solutions
 
 * `if` est-il vrai quand tous les éléments sont vrais ? `np.all(x)`
 * `if` est-il vrai quand au moins un élément du tableau est vrai ? `np.any(x)`
+`````
 
-... mais vous ne voulez rien de tout cela  
++++ {"tags": ["framed_cell"]}
+
+### la solution
+
+`````{admonition} mais vous ne voulez rien de tout cela !
 
 * vous voulez que `numpy` applique le `if` à-chaque-élément
 * i.e. que la fonction s'exécute de manière vectorisée
 
-la **solution**
+la **solution**:
 
 * demander à  `numpy` de **vectoriser** la fonction avec `np.vectorize`
 * il considérera l'argument comme un tableau
@@ -393,6 +400,7 @@ def absolute(x):
 absolute = np.vectorize(absolute)
 ```
 ````
+`````
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
@@ -416,10 +424,13 @@ absolute(tab)
 
 +++ {"tags": ["raises-exception"]}
 
-elle fonctionne aussi sur une `list` `python`
+
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
+
+# et d'ailleurs à titre anecdotique:
+# elle fonctionne aussi sur une `list` `python`
 
 absolute([-10, -20, 30])
 ```
@@ -431,36 +442,26 @@ absolute([-10, -20, 30])
 2. la fonction `abs` de Python est-elle une `ufunc` ?
 
 ```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
 # prune-cell
 
-# oui 
+# oui
 np.abs
 ```
 
 ```{code-cell} ipython3
 # prune-cell
 
-# non 
+# non
 abs
 ```
 
 ## pour les avancés ou les rapides
 
 +++
-
-````{admonition} → abs de Python ?
-`abs` de Python recherche la méthode `__abs__`  
-cette méthode est implémentée pour le type `numpy.ndarray` mais pas sur le type `list` de Python
-
-```{code-cell} ipython3
-print(abs(np.array([-1, -34.7])))      # ok
-try:
-    abs([-1, 34])                      # erreur
-except TypeError as e:
-    print(e)
-```
-
-+++ {"tags": ["framed_cell"]}
 
 ### résultats intermédiaires lors de calculs
 
@@ -488,7 +489,7 @@ def trigo_function_developpee (x):
     return np.multiply(4, int_3) # idem *
 ```
 
-ici trois tableaux intermédiaires créés (`3 * x.nbytes` octets) perdus
+ici trois tableaux intermédiaires créés inutilement (`3 * x.nbytes` octets)
 
 le calcul vectoriel crée de nombreux tableaux intermédiaires  
 qui peuvent coûter très **cher en mémoire**
@@ -585,22 +586,111 @@ plt.plot(trigo_function_developpee_out(np.linspace(0, 2*np.pi, 1000)));
 
 **exercice**
 
-1. créez un tableau `numpy` des 10000 premiers entiers  
-avec `numpy.arange`
+1. créez un tableau `numpy` des 10000 premiers entiers avec `numpy.arange`
 
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-cell 1.
+
+numbers = np.arange(1, 10_001)
+```
 
 2. calculez le temps d'exécution de l'élévation au carré des éléments  
-`%timeit 1+1`
 
-* avec un for-python
+    * a. avec un for-python
+    * b. avec une compréhension Python
+    * c. de manière vectorisée avec `**2`
+    * d. de manière vectorisée avec `np.power`
+    * e. de manière vectorisée avec `np.square`
 
-* avec une compréhension Python
+```{code-cell} ipython3
+# votre code
+```
 
-* de manière vectorisée avec `**2`
+```{code-cell} ipython3
+# prune-cell
 
-* de manière vectorisée avec `np.power`
+# 2.a
+def square_a(array):
+    result = 0
+    for x in array:
+        result += x**2
+    return x
 
-* de manière vectorisée avec `np.square`
+# 2.b
+def square_b(array):
+    return sum(x**2 for x in array)
 
+# 2.c
+def square_c(array):
+    return array ** 2
+
+# 2.d
+def square_d(array):
+    return  np.power(array, 2)
+
+# 2.e
+def square_e(array):
+    return np.square(array)
+```
 
 3. quelles sont les manières de faire les plus rapides ?
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-begin 3.
+```
+
+```{code-cell} ipython3
+%timeit square_a(numbers)
+```
+
+```{code-cell} ipython3
+%timeit square_b(numbers)
+```
+
+```{code-cell} ipython3
+%timeit square_c(numbers)
+```
+
+```{code-cell} ipython3
+%timeit square_d(numbers)
+```
+
+```{code-cell} ipython3
+%timeit square_e(numbers)
+```
+
+```{code-cell} ipython3
+# prune-end
+```
+
+4. utilisez `np.vectorize` pour décorer votre fonction 2.c; que constatez-vous ?
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-begin 4.
+
+@np.vectorize
+def not_a_good_idea_square(array):
+    return array ** 2
+```
+
+```{code-cell} ipython3
+# very poor perfs again !
+
+%timeit not_a_good_idea_square(numbers)
+```
+
+```{code-cell} ipython3
+# prune-end
+```

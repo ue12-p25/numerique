@@ -20,9 +20,9 @@ language_info:
 
 ## contenu de ce notebook (sauter si déjà acquis)
 
-- la **vectorisation** (appliquer une fonction à tout un tableau sans passer par un `for-python`)
-- les `ufunc`
-- `numpy.vectorize`
+* la **vectorisation** (appliquer une fonction à tout un tableau sans passer par un `for-python`)
+* les `ufunc`
+* `numpy.vectorize`
 
 ```{code-cell} ipython3
 # on importe la librairie numpy
@@ -40,8 +40,7 @@ from matplotlib import pyplot as plt
 pour appliquer une fonction à tous les éléments d'un tableau `numpy`
 
 * ne **jamais** utiliser une boucle `for-python`  
-* mais appliquer la fonction (ou l'opérateur)  
-  **directement au tableau** - de manière *vectorisée*
+* mais appliquer la fonction (ou l'opérateur) **directement au tableau** - de manière *vectorisée*
 * c'est plus concis à écrire, vos codes sont plus rapides, plus lisibles !
 et pourront être optimisés en temps
 
@@ -114,8 +113,8 @@ dans une première version de ce notebook, pour cette deuxième - et mauvaise - 
 - on avait utilisé `np.sin` au lieu de `math.sin`; merci à Damien Corral qui a remarqué que `np.sin` appliqué à un scalaire Python ajoute une inefficacité !  
 - et de plus on rangeait les résultats dans une liste, ce qui aggrave encore les écarts
 
-après ces corrections, qui permettent de mieux isoler la perte d'efficacité, on observe toujours un rapport de 1 à 10 !
-(et en plus on ne garde même pas les résultats du calcul)
+après ces corrections, qui permettent de mieux isoler la perte d'efficacité, on observe toujours un rapport de performance important !
+alors qu'on ne garde même pas les résultats du calcul...
 ````
 
 +++
@@ -261,17 +260,294 @@ np.power
 :class: admonition-small
 
 le but du jeu ici c'est de voir comment vectoriser une fonction **que vous écrivez vous**  
-on s'interdit donc, dans cet exercice, d'utiliser des fonctions de `numpy`, ni la fonction *builtin* `abs` de Python
 
 si vous préférez, vous pouvez choisir d'implémenter une fonction définie par morceaux  
-genre $x**2$ sur les nombres négatifs et $x^3$ sur les positifs
+genre $x^2$ sur les nombres négatifs et $x^3$ sur les positifs
 ````
 
-1. écrivez une fonction qui calcule la valeur absolue d'un scalaire x  `absolute(x)`
-2. testez votre fonction sur des scalaires
-3. créez un `np.ndarray` de scalaires et appliquez-lui la fonction
-4. que se passe-t-il ?
+1. écrivez une fonction qui calcule la valeur absolue d'un scalaire x `absolute(x)`  
+   on s'interdit donc, dans cet exercice, d'utiliser des fonctions de `numpy`, ni la fonction *builtin* `abs` de Python
+1. testez votre fonction sur des scalaires
+1. créez un `np.ndarray` de scalaires et appliquez-lui la fonction
+1. que se passe-t-il ?
 
 ```{code-cell} ipython3
 # votre code ici
+```
+
++++ {"tags": ["framed_cell"]}
+
+### problème de la fonction `absolute`
+
+`````{admonition} que se passe-t-il ?
+
+supposons que votre code soit:
+
+````python
+def absolute (x):
+    if x >= 0:
+        return x
+    return -x
+
+tab = np.array([10, -30, 56.5])
+
+absolute(tab)                   # --> BOOM
+````
+
+alors vous obtenez
+
+````python
+----> if x >= 0:
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+````
+
+car l'expression `x >= 0` appliquée à `tab` rend le tableau `array([False, True, False])`
+
+mais le `if`, appliqué au tableau de booléens `[False, True, False]`, ne sait pas quoi faire !  
+alors il propose des solutions
+
+* `if` est-il vrai quand tous les éléments sont vrais ? `np.all(x)`
+* `if` est-il vrai quand au moins un élément du tableau est vrai ? `np.any(x)`
+`````
+
++++ {"tags": ["framed_cell"]}
+
+### la solution
+
+`````{admonition} mais vous ne voulez rien de tout cela !
+
+* vous voulez que `numpy` applique le `if` à-chaque-élément
+* i.e. que la fonction s'exécute de manière vectorisée
+
+la **solution**:
+
+* demander à  `numpy` de **vectoriser** la fonction avec `np.vectorize`
+* il considérera l'argument comme un tableau
+* sur lequel le code Python "normal" sera appelé de manière vectorisée
+
+```python
+@np.vectorize
+def absolute (x):
+    if x >= 0:
+        return x
+    return -x
+
+absolute(tab)
+-> array([10. , 30. , 56.5])
+```
+
+````{admonition} c'est quoi cette syntaxe ?
+:class: admonition-small dropdown info
+
+le `@np.vectorize` en première ligne, c'est ce qu'en Python on appelle **un décorateur**  
+c'est comme si on avait fait ceci:
+
+```python
+def absolute(x):
+    if x >= 0:
+        return x
+    return -x
+
+# et le décorateur produit une fonction (vectorisée) 
+# à partir de votre fonction "naive"
+
+absolute = np.vectorize(absolute)
+```
+````
+`````
+
+```{code-cell} ipython3
+:tags: [raises-exception]
+
+# le code
+@np.vectorize
+def absolute (x):
+    if x >= 0:
+        return x
+    return -x
+```
+
+```{code-cell} ipython3
+:tags: [raises-exception]
+
+# le code
+
+tab = np.array([10, -30, 56.5])
+absolute(tab)
+```
+
+```{code-cell} ipython3
+:tags: [raises-exception]
+
+# et d'ailleurs à titre anecdotique:
+# elle fonctionne aussi sur une `list` `python`
+
+absolute([-10, -20, 30])
+```
+
+**exercice**
+
+1. la fonction `numpy.abs` est-elle une `ufunc` ?
+
+2. la fonction `abs` de Python est-elle une `ufunc` ?
+
+```{code-cell} ipython3
+# votre code
+```
+
+## pour les avancés ou les rapides
+
++++
+
+### résultats intermédiaires lors de calculs
+
+````{admonition} →
+nous appliquons des opérations vectorisées les unes à la suite des autres à des tableaux...
+
+des **espaces mémoire intermédiaires** sont créés pour recevoir les résultats des calculs  
+par exemple la fonction trigonométrique $4(e^{cos(x)})^2$
+
+```python
+def trigo (x):
+    return 4*np.exp(np.cos(x))**2
+```
+
+de combien de tableaux intermédiaires avons-nous besoin dans ce calcul ?  
+(un par calcul unitaire)
+
+on développe le code pour montrer les tableaux intermédiaires
+
+```python
+def trigo_function_developpee (x):
+    int_1 = np.cos(x)
+    int_2 = np.exp(int_1)
+    int_3 = np.power(int_2, 2)   # idem **
+    return np.multiply(4, int_3) # idem *
+```
+
+ici trois tableaux intermédiaires créés inutilement (`3 * x.nbytes` octets)
+
+le calcul vectoriel crée de nombreux tableaux intermédiaires  
+qui peuvent coûter très **cher en mémoire**
+````
+
++++
+
+***
+
++++ {"tags": ["framed_cell"]}
+
+### une solution aux tableaux intermédiaires
+
+````{admonition} →
+```python
+def trigo (x):
+    return 4*np.exp(np.cos(x))**2
+```
+
+code montrant les tableaux intermédiaires
+
+```python
+def trigo_function_developpee (x):
+    int_1 = np.cos(x)
+    int_2 = np.exp(int_1)
+    int_3 = np.power(int_2, 2)
+    return np.multiply(4, int_3)
+```
+
+la **solution** ?
+
+* utiliser le paramètre optionnel `out=` des opérateurs `numpy`  
+avec `out` on spécifie le tableau où ranger le résultat
+
+```python
+def trigo_function_developpee_out (x):
+    result = np.cos(x)        # un pour le résultat
+    np.exp(result, out=result)
+    np.power(result, 2, out=result)
+    np.multiply(4, result, out=result)
+    return result
+```
+
+**mais** ce code est
+
+* beaucoup plus compliqué à écrire que dans sa version compacte, simple et *directe*
+* il sera donc plus propice à des erreurs
+* il est franchement très difficile à lire !
+
+**en conclusion** ne faites surtout pas cela systématiquement
+
+* vous savez que ça existe
+* vous y penserez le jour où la création de tableaux intermédiaires prendra une place bien trop importante
+````
+
++++
+
+le code ci-dessous
+
+```{code-cell} ipython3
+def trigo_function_compact (x):
+    return 4*np.exp(np.cos(x))**2
+```
+
+```{code-cell} ipython3
+plt.plot(trigo_function_compact(np.linspace(0, 2*np.pi, 1000)));
+```
+
+```{code-cell} ipython3
+def trigo_function_developpee (x):
+    int_1 = np.cos(x)
+    int_2 = np.exp(int_1)
+    int_3 = np.power(int_2, 2)
+    result = 4*int_3
+    return result
+```
+
+```{code-cell} ipython3
+def trigo_function_developpee_out (x):
+    result = np.cos(x)      # il m'en faut bien un pour le résultat !
+    np.exp(result, out=result)
+    np.power(result, 2, out=result)
+    np.multiply(4, result, out=result)
+    return result
+```
+
+```{code-cell} ipython3
+plt.plot(trigo_function_developpee_out(np.linspace(0, 2*np.pi, 1000)));
+```
+
+### temps d'exécution de l'élévation d'un tableau au carré - avancé ou rapide
+
++++
+
+**exercice**
+
+1. créez un tableau `numpy` des 10000 premiers entiers avec `numpy.arange`
+
+```{code-cell} ipython3
+# votre code
+```
+
+2. calculez le temps d'exécution de l'élévation au carré des éléments  
+
+    * a. avec un for-python
+    * b. avec une compréhension Python
+    * c. de manière vectorisée avec `**2`
+    * d. de manière vectorisée avec `np.power`
+    * e. de manière vectorisée avec `np.square`
+
+```{code-cell} ipython3
+# votre code
+```
+
+3. quelles sont les manières de faire les plus rapides ?
+
+```{code-cell} ipython3
+# votre code
+```
+
+4. utilisez `np.vectorize` pour décorer votre fonction 2.c; que constatez-vous ?
+
+```{code-cell} ipython3
+# votre code
 ```
