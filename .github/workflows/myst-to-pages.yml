@@ -49,7 +49,7 @@ jobs:
       - name: Checkout MyST repo
         uses: actions/checkout@v4
         with:
-          repository: jupyter-book/mystmd
+          repository: parmentelat/mystmd
           ref: feat/prototype-hidden-in-html
           path: mystmd
       - name: Install MyST
