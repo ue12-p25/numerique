@@ -217,6 +217,9 @@ dice_1 = np.arange(1, 7)
 
 # peut être transformé en une colonne comme ceci
 dice_2 = dice_1[:, np.newaxis]
+
+# et plus généralement je peux "décaler" la shape d\un cran avec
+dice_nplus1 = dice_n[..., np.newaxis]
 ```
 ````
 
