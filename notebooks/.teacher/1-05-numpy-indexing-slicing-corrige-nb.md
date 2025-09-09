@@ -973,8 +973,6 @@ def stairs(taille):
 stairs(4)
 ```
 
-<https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x3-stairs>
-
 +++ {"tags": ["level_advanced"]}
 
 ### calculs imbriqués (avancé)
