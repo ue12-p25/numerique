@@ -77,27 +77,26 @@ sur des tableaux `numpy` utilisez **toujours** la **vectorisation**
 
 
 vérifiez en comparant les temps d'exécution des deux codes `%%timeit`  
-attention c'est très long...
+attention, le code est exécuté **de nombreuses fois**, c'est bien plus long que ce qu'on pourrait penser
 `````
-
-```{code-cell} ipython3
-%%timeit
-n = 1000000
-x = np.linspace(0, 2*np.pi, n)
-
-# la bonne façon
-np.sin(x)         # np.sin appliquée au tableau x
-```
 
 ```{code-cell} ipython3
 # pour comparer les choses comparables
 import math
+
+n = 1_000_000
+x = np.linspace(0, 2*np.pi, n)
 ```
 
 ```{code-cell} ipython3
 %%timeit
-n = 1000000
-x = np.linspace(0, 2*np.pi, n)
+
+# la bonne façon
+np.sin(x)               # np.sin appliquée au tableau x
+```
+
+```{code-cell} ipython3
+%%timeit
 
 # la mauvaise façon
 for e in x:             # une boucle for sur un tableau numpy
@@ -280,6 +279,30 @@ np.add
 np.power
 ```
 
+**exercice**
+
+1. la fonction `numpy.abs` est-elle une `ufunc` ?
+
+2. la fonction `abs` de Python est-elle une `ufunc` ?
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+# oui
+np.abs
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+# non
+abs
+```
+
 ## pour vectoriser une fonction
 
 +++
@@ -358,9 +381,9 @@ alors il propose des solutions
 
 +++ {"tags": ["framed_cell"]}
 
-### la solution
+### mais vous ne voulez rien de tout cela !
 
-`````{admonition} mais vous ne voulez rien de tout cela !
+`````{admonition} la solution
 
 * vous voulez que `numpy` applique le `if` à-chaque-élément
 * i.e. que la fonction s'exécute de manière vectorisée
@@ -422,10 +445,6 @@ tab = np.array([10, -30, 56.5])
 absolute(tab)
 ```
 
-+++ {"tags": ["raises-exception"]}
-
-
-
 ```{code-cell} ipython3
 :tags: [raises-exception]
 
@@ -435,28 +454,51 @@ absolute(tab)
 absolute([-10, -20, 30])
 ```
 
-**exercice**
++++ {"tags": ["framed_cell"]}
 
-1. la fonction `numpy.abs` est-elle une `ufunc` ?
+### note sur les performances
 
-2. la fonction `abs` de Python est-elle une `ufunc` ?
+````{admonition} np.vectorize ne compile pas !
+:class: warning
+
+notez bien que cette façon de faire est plus une commodité qu'autre chose, et ne pensez pas que le traitement va être accéléré pour autant
+
+ci-dessous on va reprendre la même idée que `absolute` avec, juste pour changer, une fonction qui vaut $x^2$ sur les néftifs et $X^3$ sur les positifs  
+vous allez constater que l'on peut accélérer considérablement les choses par rapport à `np.vectorize`, au prix d'une empreinte mémoire plus importante 
+
+bref, ne pas hésiter surtout à benchmarker !
+
+```{admonition} on peut compiler
+on n'en parlera plus dans ce cours, mais il existe aussi des outils qui permettent de compiler le code Python,
+[comme notamment numba](https://numba.pydata.org/), et plein d'autres  
+par contre ça demande pas mal de travail supplémentaire... 
+```
+
+````
 
 ```{code-cell} ipython3
-# votre code
+X = np.linspace(-10, 10, 10_000)
 ```
 
 ```{code-cell} ipython3
-# prune-cell
+# la version avec np.vectorize n'est pas spécialement efficace
 
-# oui
-np.abs
+@np.vectorize
+def x2_x3_vec(x):
+    return x**2 if x < 0 else x**3
+
+%timeit x2_x3_vec(X)
 ```
 
 ```{code-cell} ipython3
-# prune-cell
+# on peut faire beaucoup mieux avec ce code
+# le défaut c'est qu'on calcule 3 tableaux de la même taille 
+# en plus du tableau résultat
 
-# non
-abs
+def x2_x3_where(x):
+    return np.where( x<0, x**2, x**3)
+
+%timeit x2_x3_where(X)
 ```
 
 ## pour les avancés ou les rapides
