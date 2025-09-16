@@ -17,14 +17,6 @@ nbhosting:
   title: TP simple avec des images
 ---
 
-Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
-
-+++
-
-pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-images.zip>`
-
-+++
-
 # TP images (1/2)
 
 merci à Wikipedia et à stackoverflow
