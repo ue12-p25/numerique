@@ -51,4 +51,4 @@ site:
     folders: true
 
 extends:
-  - _myst-toc.yml
+  - myst-toc.yml
