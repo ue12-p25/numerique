@@ -15,6 +15,13 @@ language_info:
 
 # Python numérique
 
+[![Published](https://img.shields.io/badge/Published-Website-green)](https://numerique.info-mines.paris)
+[![MyST Build Status](https://img.shields.io/github/actions/workflow/status/ue12-p25/numerique/myst-to-pages.yml?branch=main&label=MyST%20Build%20Status)](https://github.com/ue12-p25/numerique/actions/workflows/myst-to-pages.yml)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/ue12-p25/numerique)
+[![Open in Codespaces](https://img.shields.io/badge/Open%20in-Codespaces-blue?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=ue12-p25%2Fnumerique)
+
+[![License: CC BY-NC-ND](https://img.shields.io/badge/License-CC%20BY--NC--ND-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/) *Valérie Roy & Thierry Parmentelat*
+
 ## contenu de ce module: numpy, pandas et matplotlib
 
 le corpus principal porte sur:
@@ -120,21 +127,3 @@ si vous voulez essayer d'utiliser ce système, [voyez cette page dans le cours d
 ````{attention}
 Comme indiqué dans cette page, il est **crucial** de s'assurer que votre "prompt" bash (ce qui est affiché avant le `$` lorsque vous avez la main dans le terminal) vous indique en permanence dans quel environnement vous vous trouvez.
 ````
-
-***
-
-+++
-
-## publication
-
-* ce cours est publié sur [https://numerique.info-mines.paris](https://numerique.info-mines.paris) ![the badge](https://github.com/ue12-p25/numerique/actions/workflows/myst-to-pages.yml/badge.svg)
-
-* les sources de ce cours sur github:
-  <https://github.com/ue12-p25/numerique>
-
-+++
-
-## licence
-
-tout le contenu de ce cours est sous licence CC BY-NC-ND, Valérie Roy & Thierry
-Parmentelat
