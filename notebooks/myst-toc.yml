@@ -22,17 +22,17 @@ project:
         - file: 1-05-numpy-indexing-slicing-nb.md
         - title: TP images (1/2)
           file: 1-06-imported-images1-nb.md
-          # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/images/README-images1-nb.html
+          # url: https://numerique-exos.info-mines.paris/numpy-tps/images/readme-images1-nb/
         - file: 1-07-numpy-aggregate-nb.md
         - file: 1-08-numpy-broadcast-nb.md
         - file: 1-09-numpy-array-testing-nb.md
         - title: TP images (2/2)
           file: 1-10-imported-images2-nb.md
-          # url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/images/README-images2-nb.html
+          # url: https://numerique-exos.info-mines.paris/numpy-tps/images/readme-images2-nb/
         - file: 1-11-numpy-TP-dices-advanced-nb.md
         - title: TP sons
           # file: 1-12-imported-sounds-nb.md
-          url: https://flotpython-exos-ds.readthedocs.io/en/main/numpy-tps/sounds/README-sounds-nb.html
+          url: https://numerique-exos.info-mines.paris/numpy-tps/sounds/readme-sounds-nb/
         - file: 1-13-numpy-linalg-optional-nb.md
         - file: 1-14-numpy-optional-indexing-nb.md
         - pattern: .teacher/1*-corrige-nb.md
@@ -51,18 +51,18 @@ project:
         - file: 2-09-pandas-merge-concat-nb.md
         - title: TP collages
           # file: 2-10-imported-collages-nb.md
-          url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/collages/README-collages-nb.html
+          url: https://numerique-exos.info-mines.paris/pandas-tps/collages/readme-collages-nb/
         - file: 2-11-timeseries-nb.md
         - title: "HOWTO: les vélos (timeseries)"
           # file: 2-12-imported-fremont-bridge-nb.md
-          url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-howtos/fremont-bridge/HOWTO-fremont-bridge-nb.html
+          url: https://numerique-exos.info-mines.paris/pandas-howtos/fremont-bridge/howto-fremont-bridge-nb/
         - title: TP Covid
           # file: 2-13-imported-covid-nb.md
-          url: https://flotpython-exos-ds.readthedocs.io/en/main/pandas-tps/covid/README-covid-nb.html
+          url: https://numerique-exos.info-mines.paris/pandas-tps/covid/readme-covid-nb/
           # double check after dedup on the exos side
         - title: TP géoloc addresses
           # file: 2-14-imported-addresses-nb.md
-          url: https://flotpython-exos-ds.readthedocs.io/en/main/geo-tps/addresses/README-addresses-nb.html
+          url: https://numerique-exos.info-mines.paris/geo-tps/addresses/readme-addresses-nb/
         - file: 2-15-itables-nb.md
         - pattern: .teacher/2*-corrige-nb.md
           hidden: true
