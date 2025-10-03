@@ -16,7 +16,7 @@ language_info:
 
 # types containers
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## la liste
 
@@ -59,20 +59,14 @@ type(groupe)
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 groupe
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
+:cell_style: split
+
 # comme avec les chaines
 # on peut accéder au i-ème élément
 # les indices commencent à 0
@@ -112,8 +106,6 @@ groupe[-1] == heterogene
 groupe[::2] # du début à la fin avec un pas de 2
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## liste et opérateurs
 
 +++
@@ -151,8 +143,6 @@ de nombreux opérateurs sont définis aussi sur les listes
 'tutu' not in groupe
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## itérations
 
 approfondi dans une section ultérieure  
@@ -162,8 +152,6 @@ mais dans sa forme la plus simple: `for .. in .. :`
 for item in groupe:
     print(item)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## listes et performances
 
@@ -199,7 +187,7 @@ while tutu:
 MAIS cela n'est un problème qu'avec des données nombreuses - $10^4$  
 du coup pour des preuves de concept la liste est **TRÈS** flexible et pratique
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## le tuple
 
@@ -225,8 +213,6 @@ paquet
 # ni paquet.append(0)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## l'ensemble
 
 +++
@@ -246,11 +232,8 @@ une autre forme de container, mais assez différent :
   utiliser à la place un `tuple`
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 # pour créer un ensemble
 ensemble = {12, "abc"}
 ensemble
@@ -298,8 +281,6 @@ ensemble.remove(12)
 ensemble
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### itérations sur l'ensemble
 
 +++
@@ -312,8 +293,6 @@ depuis Python-3.7 le parcours se fait dans l'ordre des insertions
 for item in ensemble:
     print(item)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## le dictionnaire
 
@@ -340,11 +319,8 @@ annuaire
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 # on ne peut plus accéder par indice
 # annuaire[0] ne veut rien dire!
 
@@ -380,11 +356,8 @@ annuaire
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
+:cell_style: split
+
 annuaire
 ```
 
@@ -396,8 +369,6 @@ annuaire
 
 'alice' in annuaire
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## digression : affectation multiple
 
@@ -424,18 +395,12 @@ dans ce contexte c'est un gadget, mais c'est intéressant parfois
 car les termes à droite de `=` sont tous évalués avant de faire les affectations
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: ''
----
 # et ainsi on peut par exemple
 # échanger deux variables
 a, b = b, a
 
 print(f"a={a}, b={b}")
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## itération sur un dictionnaire
 
@@ -458,8 +423,6 @@ for couple in annuaire.items():
     cle, valeur = couple # on appelle cela de l'unpacking
     print(f"{cle} → {valeur}")
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## fonctions et arguments multiples (1)
 
@@ -500,13 +463,11 @@ foo(1, 2)
 foo(1, 2, 3)
 ```
 
-+++ {"slideshow": {"slide_type": "notes"}}
-
 bien entendu on ne peut définir qu'un seul paramètre de ce genre, et il doit apparaitre en
 dernier dans la signature de la fonction  
 Si on pouvait en mettre plusieurs, il y aurait ambigüité quant à qui reçoit quoi.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## fonctions et arguments multiples (2)
 
@@ -547,12 +508,10 @@ foo(*args)
 foo(1, 2, 3)
 ```
 
-+++ {"slideshow": {"slide_type": "notes"}}
-
 à l'appel de la fonction par contre on peut passer plusieurs arguments étoilés, leurs
 composants sont simplement ajoutés dans l'ordre aux arguments de la fonction.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## résumé
 

@@ -50,7 +50,7 @@ exemple:
 
 ***
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": ["framed_cell"]}
++++ {"tags": ["framed_cell"]}
 
 (label-pandas-mask)=
 
@@ -169,7 +169,7 @@ girls_df = df.loc[girls]
 girls_df.head(2)
 ```
 
-+++ {"tags": ["framed_cell"], "slideshow": {"slide_type": "slide"}}
++++ {"tags": ["framed_cell"]}
 
 ## `value_counts()`
 
@@ -492,10 +492,6 @@ df.isna().to_numpy().sum()
 1. lisez la data-frame du titanic `df`
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: ''
----
 # votre code
 ```
 

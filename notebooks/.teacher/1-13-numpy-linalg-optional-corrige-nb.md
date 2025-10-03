@@ -21,8 +21,6 @@ language_info:
 import numpy as np
 ```
 
-+++
-
 ## contenu de ce notebook (notebook à sauter)
 
 **IMPORTANT**  

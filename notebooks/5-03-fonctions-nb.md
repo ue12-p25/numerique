@@ -16,7 +16,7 @@ language_info:
 
 # fonctions
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## le mot clé `def`
 
@@ -59,8 +59,6 @@ P(100)
 help(P)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## syntaxe
 
 +++
@@ -71,7 +69,7 @@ c'est différent d'autres langages comme C++, Java, Javascript, ...
 ce choix est fait pour **augmenter la lisibilité**  
 car on n'a alors pas besoin de sucre syntaxique comme `begin .. end` ou autres `{ .. } `
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## syntaxe - illustration  
 
@@ -106,7 +104,7 @@ def foo(i):
         fonction3(i)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `return`
 
@@ -121,11 +119,8 @@ l'exécution de la fonction **s'arrête** à ce moment-là
 si pas de `return`, le retour est `None`
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 # une fonction incomplète
 def broken_abs(n):
     if n <= 0:
@@ -171,8 +166,6 @@ fixed_abs(-10)
 # et maintenant ca marche avec les positifs
 fixed_abs(10)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## variables locales
 
@@ -221,8 +214,6 @@ polynom(10)
 var
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## appels imbriqués / récursion
 
 +++ {"cell_style": "center"}
@@ -240,7 +231,7 @@ du coup il est nécessaire de conserver où en est `f`
 * à quel point on en est dans `f`
 * la valeur des variables locales de `f`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## pile d'exécution
 
@@ -261,11 +252,8 @@ un site qui est très utile pour visualiser l'exécution de code simple
 ```
 
 ```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: slide
----
+:cell_style: center
+
 %%ipythontutor height=500
 
 def fact(n):
@@ -279,8 +267,6 @@ def fact(n):
 x = fact(3)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## exceptions
 
 +++
@@ -291,11 +277,8 @@ et de **dépiler** les appels jusqu'à
 trouver un `except` qui **attrape l'exception**
 
 ```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: slide
----
+:cell_style: center
+
 # une fonction qui va faire raise
 # mais pas tout de suite
 def time_bomb(n):
@@ -307,12 +290,9 @@ def time_bomb(n):
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
-tags: [raises-exception]
----
+:cell_style: split
+:tags: [raises-exception]
+
 # si personne n'attrape un raise
 # le contrôle retourne à l'OS
 # d'une manière très abrupte
@@ -328,11 +308,8 @@ driver()
 ![uncaught](media/except-stack-uncaught.svg)
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 # cette fois tout est
 # sous contrôle
 def driver_try():
@@ -349,7 +326,7 @@ driver_try()
 
 ![try](media/except-stack-try.svg)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## clause `except`
 
@@ -366,7 +343,7 @@ driver_try()
   (par exemple, attraper toutes les erreurs d'entrées-sortie  
    mais laisser passer les autres)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## passage d'arguments
 
@@ -394,7 +371,7 @@ foo(100, 20)
 foo(1000)
 ```
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 ## exercices - avancés
 
@@ -403,7 +380,7 @@ foo(1000)
 https://nbhosting.inria.fr/auditor/notebook/exos-mooc:exos/w4/w4-s3-x1-pgcd  
 https://nbhosting.inria.fr/auditor/notebook/exos-mooc:exos/w4/w4-s3-x4-power
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": ""}}
++++ {"cell_style": "split"}
 
 écrire une fonction qui calcule la puissance entière
 

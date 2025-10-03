@@ -16,7 +16,7 @@ language_info:
 
 # test sur le langage Python
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 Les objectifs du cours de base sur Python
 
@@ -49,7 +49,7 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
    1. Vous avez réussi les exercices pour débutants, moyens et la plupart des exercices pour avancés ?  
       Proposez-vous auprès de vos enseignants pour aider vos camarades lors des cours.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## quelques définitions
 
@@ -89,8 +89,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 # votre code
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ##  chaînes de caractères
 
 **débutants**
@@ -115,8 +113,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 # votre code
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## indexation et slicing de chaînes de caractères
 
 **débutants**
@@ -138,8 +134,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 ```{code-cell} ipython3
 # votre code
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## fonctions
 
@@ -167,8 +161,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 # votre code
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## exceptions
 
 **débutants**
@@ -182,8 +174,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 ```{code-cell} ipython3
 # votre code
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## listes (`list`)
 
@@ -209,8 +199,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 # votre code
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## tuples
 
 **débutants**
@@ -224,8 +212,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 ```{code-cell} ipython3
 # votre code
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## dictionnaires (`dict`)
 
@@ -247,8 +233,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 # votre code
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## ensembles (`set`)
 
 **débutants**
@@ -266,8 +250,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 # votre code
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## références
 
    - en programmation, on manipule très souvent des **références** vers des objets
@@ -279,7 +261,7 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
    - cela permet d'éviter les copies inutiles
    - mais on peut ainsi accéder à un objet de plusieurs manières: **références partagées**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 **débutants**
 
@@ -321,7 +303,7 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
    print('avec is', L1 is L2, L1 is L3)
    ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 **avancé**
 
@@ -334,8 +316,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 ```{code-cell} ipython3
 # votre code
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## itérateurs simples
 
@@ -364,8 +344,6 @@ Ils sont présentés en 3 niveaux: ***débutant***, ***moyen*** et ***avancé***
 ```{code-cell} ipython3
 # votre code
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## classes
 

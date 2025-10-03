@@ -18,11 +18,8 @@ language_info:
 une librairie de visualisation plus évoluée que matplotlib pour faire de l'exploration de données
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: ''
-tags: []
----
+:tags: []
+
 import seaborn as sns
 ```
 

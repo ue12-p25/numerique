@@ -20,7 +20,7 @@ language_info:
 
 tour d'horizon rapide du langage Python
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## commentaires
 
@@ -32,8 +32,6 @@ et sera ignoré par l'interpréteur Python
 
 10 * 10   # et ici aussi
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## importer une librairie
 
@@ -58,8 +56,6 @@ import math
 math?
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## utiliser une librairie
 
 une bibliothèque expose typiquement un certain nombre de symboles  
@@ -83,8 +79,6 @@ math.pi
 
 math.cos(math.pi)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## nombres
 
@@ -127,8 +121,6 @@ True
 10 % 3 == 1 
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## précision des calculs flottants
 
 bien sûr un flottant est représenté, en informatique, comme une suite de bits 0 ou 1  
@@ -161,19 +153,17 @@ cela induit des calculs avec une précision imparfaite
 math.isclose(0.2+0.1, 0.3)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## précision des calculs flottants
 **optionnel**
 
-+++ {"slideshow": {"slide_type": ""}}
++++
 
 la façon de passer d'un flottant à une séquence de bits  
 s'appelle un **encodage** 
 [dans le cas des flottants: IEE754](https://en.wikipedia.org/wiki/IEEE_754)  
 qui est efficace car supporté par le processeur
 
-+++ {"slideshow": {"slide_type": ""}}
++++
 
 pour faire court - dans le cas le plus courant (`binary64`)  
 la précision des calculs est de l'ordre de $10^{-15}$ 
@@ -181,18 +171,15 @@ la précision des calculs est de l'ordre de $10^{-15}$
 
 voir un [convertisseur en ligne](http://www.binaryconvert.com/convert_double.html) pour visuels
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## définir une variable
 
 pour définir une variable, il suffit de l'affecter avec le signe `=`
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
+:cell_style: split
+
 # remarquez que ceci n'affiche rien
 a = 10
 ```
@@ -205,8 +192,6 @@ a = 10
 # s'en reservir ensuite
 a + a
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## texte (chaînes de caractères)
 
@@ -244,8 +229,6 @@ print('Python est un langage "typé"')
 print("Python est un langage 'typé'")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## `print()`
 
 remarquez qu'on a utilisé la fonction `print` qui est prédéfinie  
@@ -260,8 +243,6 @@ on peut l'appeler avec autant d'arguments qu'on veut
 x = 12
 print("la somme de", x, "et", 13, "vaut", x+13)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## formatage
 
@@ -296,8 +277,6 @@ print(f'pi = {math.pi}')
 print(f"pi = {math.pi} et sin(pi) = {math.sin(math.pi)}")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## formatage - plus finement
 
 il y a des tas de possibilités pour affiner la façon  
@@ -315,7 +294,7 @@ print(f"bla {2*math.pi:.2f} bla")
 
 ![](media/f-string.svg)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## fonctions
 
@@ -414,7 +393,7 @@ for key, value in D.items():
 les blocs sont délimités par indentation, il n'y a pas de syntaxe de bloc à-la `c` avec des `{...}`  
 ce qui rend les codes un peu plus lisibles
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## mots clés
 
@@ -448,7 +427,7 @@ SyntaxError: invalid syntax
 | assert    | del      | global  | not          | with   |
 | async | elif     | if      | or           | yield  |
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## importer des symboles (variables, fonctions...)
 
@@ -468,8 +447,6 @@ pi
 # idem
 sin(pi)
 ```
-
-+++ {"slideshow": {"slide_type": "notes"}}
 
 Préférez savoir d'où viennent les fonctions que vous utilisez.  
 C'est pourquoi on vous recommande fortement d'utiliser la forme `math.sin` plutôt que `sin`, qui garde la trace du module d'où provient le symbole `sin`.
@@ -495,8 +472,6 @@ import numpy as np
 # mais dans notre code on l'utilise sous le nom np
 np.sin(np.pi)
 ```
-
-+++ {"slideshow": {"slide_type": "notes"}}
 
 Remarquez qu'ici on devrait obtenir 0, mais les calculs sur les flottants sont faits de manière approchée.
 
@@ -572,8 +547,6 @@ d['deux'] = 2
 print(d)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## `len()`
 
 +++
@@ -608,8 +581,6 @@ len("été")
 d = {'zero': 0, 'un': 1, 'trois': 3}
 len(d)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## textes plus longs
 
@@ -855,8 +826,6 @@ chaine = "bonjour"
 
 chaine.capitalize()
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 deux méthodes très utiles sur les chaines : `split` et `join`
 

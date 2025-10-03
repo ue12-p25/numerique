@@ -852,11 +852,8 @@ selection
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: ''
-tags: []
----
+:tags: []
+
 # prune-cell
 len(selection)
 ```

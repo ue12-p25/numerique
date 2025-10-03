@@ -21,8 +21,6 @@ language_info:
 %load_ext ipythontutor
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## imbrications
 
 naturellement, les différents types de containers  
@@ -50,8 +48,6 @@ combo2 = {
 combo2
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## références partagées
 
 du coup on peut construire en mémoire des graphes,  
@@ -74,10 +70,6 @@ double
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 %%ipythontutor
 
 # idem visualisé sous pythontutor
@@ -86,8 +78,6 @@ double = [shared, shared]
 shared[0] = 'boom'
 print(double)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## quand ?
 
@@ -127,7 +117,7 @@ c
 ***
 **la fin est optionnelle**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## références
 
@@ -142,7 +132,7 @@ des références vers des objets :
 
 sont tous des références vers des objets
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## références partagées
 
@@ -156,7 +146,7 @@ sont tous des références vers des objets
   et faire explicitement des copies  
   lorsque le partage n'est pas souhaitable
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## mutable / immuable
 
@@ -168,7 +158,7 @@ sont tous des références vers des objets
   est *mutable* - c'est-à-dire peut être modifié -  
   comme nos 3 sortes de containers `list`, `dict` et `set`
 
-+++ {"slideshow": {"slide_type": "notes"}}
++++
 
 On insiste bien sur le fait que les **nombres**  et les **chaines** ne sont **pas
 mutables** en Python; pour vous en convaincre et à titre d'exercice, essayer de fabriquer

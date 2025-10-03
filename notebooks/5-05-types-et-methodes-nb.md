@@ -16,7 +16,7 @@ language_info:
 
 # objets, types et méthodes
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Python est un paradigme orienté objet  
 
@@ -24,11 +24,8 @@ cela signifie que toutes vos données sont des objets
 entre autres choses chaque objet a un type
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 # en Python absolument toutes les données
 # en mémoire sont des objets
 # chaque objet possède (entre autres)
@@ -72,8 +69,6 @@ type(fact)
 type(math)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## méthode = fonction attachée à un type
 
 +++
@@ -91,16 +86,13 @@ ce qui se passe c'est que
 * on trouve une **fonction**, et on l'appelle
 * avec en premier argument l'objet
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## appel de méthode illustré
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
+:cell_style: split
+
 chaine = "bonjour"
 chaine
 ```
@@ -145,8 +137,6 @@ chaine.center(13, '-')
 # ils sont ajoutés après l'objet
 str.center(chaine, 13, '-')
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## à quoi ça sert ?
 

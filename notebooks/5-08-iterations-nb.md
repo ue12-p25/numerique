@@ -16,7 +16,7 @@ language_info:
 
 # itérations
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## boucle `for`
 
@@ -44,7 +44,7 @@ en fait on peut itérer sur un grand nombre d'objets
 que par définition on appelle **itérables**  
 dont une sous-famille remarquable est celle des **itérateurs**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## itérateurs
 
@@ -67,7 +67,7 @@ for (int i=0; i<=1000000; i++) {
 }
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `range()`
 
@@ -87,7 +87,7 @@ c'est ce qu'on appelle un **itérateur**
 c'est à dire un **tout petit objet** (en terme d'occupation mémoire)  
 qui ne fait que **mémoriser où on en est** dans l'itération
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `range()` - suite
 
@@ -128,8 +128,6 @@ explicit = list(range(10**6))
 import sys
 sys.getsizeof(explicit)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## `enumerate()`
 
@@ -176,7 +174,7 @@ for i, item in enumerate(sujets):
 
 c'est le propos de la fonction `enumerate()`
 
-+++ {"slideshow": {"slide_type": "notes"}}
++++
 
 ce style de programmation à base d'indices est tentant, surtout lorsqu'on vient d'un autre
 langage, mais c'est considéré comme pas du tout pythonique. Il est important de prendre
@@ -184,7 +182,7 @@ l'habitude d'utiliser la boucle `for` de la bonne façon, notamment car la progr
 par indice ne se prête pas du tout aux itérations plus sophistiquées que nous allons
 étudier.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## boucle `for` - généralisation
 
@@ -203,11 +201,8 @@ import itertools
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 from itertools import product # produit carthésien
 
 cartes = ['V', 'D', 'R', 'As']
@@ -226,12 +221,10 @@ for tirage in permutations(couleurs):
     print(tirage)
 ```
 
-+++ {"slideshow": {"slide_type": "notes"}}
-
 Dans le cas de la fonction `itertools.product`, remarquez que notre code revient à faire
 deux boucles imbriquées.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `break` et `continue`
 
@@ -267,8 +260,6 @@ for couleur in couleurs:
     for carte in cartes:
         print(f"{carte} de {couleur}")
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 `break` et `continue` sont toujours relatives  
 à la boucle la plus imbriquée
@@ -316,8 +307,6 @@ for x in cartes[:2]:
         print(f"{x} de {y}")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## compréhension
 
 +++
@@ -352,17 +341,12 @@ entrees = [10, -10, 421]
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
----
+:cell_style: split
+
 # avec filtrage - avec toutes
 # les variétés de compréhensions
 {x**2 for x in entrees if x % 2 == 0}
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## expressions génératrices
 
@@ -379,7 +363,7 @@ dans ces cas-là, il suffit de prendre la compréhension de liste
 et remplacer les `[]` par `()`  
 cela s'appelle une **expression génératrice**
 
-+++ {"slideshow": {"slide_type": "notes"}}
++++
 
 Le fait de devoir allouer de la mémoire a plusieurs inconvénients. Tout d'abord bien
 entendu, la mémoire est une ressource finie, qu'il faut donc utiliser avec parcimonie. De
@@ -387,7 +371,7 @@ plus, lorsqu'un programme a besoin de mémoire il la demande au système d'explo
 c'est une opération bien plus lente qu'on pourrait le soupçonner naïvement ; et même sur
 une machine dotée d'une mémoire énorme, ce temps d'allocation pénalise les performances.
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 Benchmark : la somme des premiers entiers.
 
@@ -427,8 +411,6 @@ generatrice = (x for x in range(10**6))
 
 sys.getsizeof(generatrice)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## résumé
 

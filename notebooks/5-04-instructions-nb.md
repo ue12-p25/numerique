@@ -20,7 +20,7 @@ language_info:
 
 Certaines de ces instructions seront décrites dans le notebook sur les itérations.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## le branchement `if`
 
@@ -58,7 +58,7 @@ else:
 appreciation
 ```
 
-+++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "split"}
 
 ## la boucle `while`
 

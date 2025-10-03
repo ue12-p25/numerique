@@ -17,7 +17,7 @@ language_info:
 
 # modules
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## bibliothèque standard
 
@@ -29,7 +29,7 @@ pour des tâches très variées
 cette boite à outils est exposée au travers de **modules**  
 que l'on peut charger dans son appli grâce au mot-clé `import`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `import`
 
@@ -65,8 +65,6 @@ type(math)
 math.pi
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## autres formes
 
 ```{code-cell} ipython3
@@ -90,8 +88,6 @@ pi
 math.cos(pi)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## installation de librairies tierces
 
 si on a besoin d'installer un module  
@@ -102,10 +98,6 @@ qui ne fait pas partie de la bibliothèque standard :
   (se lance depuis le terminal)
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # cette astuce avec le ! me permet
 # d'appeler une commande normalement destinée au terminal
 # mais depuis Python
@@ -116,8 +108,6 @@ slideshow:
 ```{code-cell} ipython3
 import nbautoeval
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## c'est quoi un module ?
 
@@ -131,11 +121,8 @@ le module a autant d'attributs que d'objets globaux dans le code source
 dans le cas d'un répertoire les attributs référencent d'autres modules
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 # regarder le contenu
 !cat mod.py
 ```
@@ -157,8 +144,6 @@ dir(mod)
 [x for x in dir(mod) if '__' not in x]
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## notion de point d'entrée
 
 +++
@@ -178,7 +163,7 @@ $ python3 foo.py
 le point d'entrée dans ce cas est
 (le module correspondant à) `foo.py`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## recherche des modules
 
@@ -190,7 +175,7 @@ Python recherche les modules dans plusieurs d'endroits (répertoires)
 
 conseil : évitez de bidouiller `PYTHONPATH`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## organisation de votre code
 
@@ -198,13 +183,13 @@ cela signifie que pour commencer,
 on peut sans souci couper son code en fichiers  
 et les mettre tous dans le même répertoire
 
-+++ {"slideshow": {"slide_type": ""}}
++++
 
 c'est une pratique courante et recommandée  
 il faut apprendre à découper  
 notamment pour augmenter la réutilisabilité
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## librairies utiles
 
@@ -217,7 +202,7 @@ liste largement non exhaustive
 
 * Python scientifique: `numpy`, `pandas`, `matplotlib`, ...
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## module `pathlib`
 
@@ -231,11 +216,8 @@ permet de faire des calculs sur les fichiers
 * accéder aux métadata (taille, date, ...)
 
 ```{code-cell} ipython3
----
-cell_style: center
-slideshow:
-  slide_type: slide
----
+:cell_style: center
+
 # ici Path correspond à une classe
 # on verra la théorie très bientôt
 from pathlib import Path
@@ -253,8 +235,6 @@ for file in local_files:
     print('size', file.stat().st_size)
     break
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## module `random`
 
@@ -283,8 +263,6 @@ random.random()
 random.randint(0, 10)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## module `requests`
 
 +++
@@ -294,10 +272,6 @@ accéder à l'entête http
 plus flexible que l'équivalent dans la librairie standard `urllib2`
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 import requests
 
 url = ""
@@ -323,8 +297,6 @@ type(raw_content)
 raw_content[:120]
 # son contenu est en format json (voir slide suivante)
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## module `json`
 
@@ -353,8 +325,6 @@ for k, v in decoded.items():
     print(f"{k}\n\t{v[:20]}...")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## gestion de fichiers
 
 ```{code-cell} ipython3
@@ -375,7 +345,7 @@ with open("tutu.txt", "w") as writer:
 `with` ferme le fichier à la sortie  
 (nous allons maintenant lire ce fichier)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## fichiers - suite
 
@@ -398,7 +368,7 @@ l'objet `reader` est **itérable**
 la variable `line` contient une fin de ligne  
 pas besoin que `print` en rajoute une
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## exercice
 

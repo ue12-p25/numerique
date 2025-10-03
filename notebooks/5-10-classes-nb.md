@@ -16,7 +16,7 @@ language_info:
 
 # classes
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## types prédéfinis et monde réel
 
@@ -30,7 +30,7 @@ sont pratiques et puissants
 **MAIS** souvent cela n'est pas suffisant
 pour traiter des problèmes réels
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## typiquement
 
@@ -51,7 +51,7 @@ pour des applications simples
 (c'est par exemple ce qu'on récupère d'un fichier JSON)  
 mais c'est vite un peu lourd et très limité
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 ## `class`  
 dans ces cas-là (et dans bien d'autres)  
@@ -83,7 +83,7 @@ class User:
 user1 = User("Lambert", 25)
 ```
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 ## instances
 
@@ -107,7 +107,7 @@ User("Lambert", 25)`
   signifie que l'on attache le paramètre `name`  
   dans l'attribut `name` de l'objet en cours de création
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## affichage
 
@@ -144,8 +144,6 @@ class User:
 user2 = User("Martin", 22)
 user2
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## méthodes
 
@@ -202,8 +200,6 @@ stack.pop()
 stack
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## méthodes - suite
 
 +++
@@ -214,7 +210,7 @@ car `obj.methode(...)`
 est équivalent à
 `methode(obj, ...)`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## intérêts de cette approche
 
@@ -233,7 +229,7 @@ est équivalent à
 
 * héritage - ne sera pas détaillé dans ce cours
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## objets et langage
 
@@ -255,7 +251,7 @@ exemples, selon le type de `obj` :
 * indexation `obj[x]`
 * etc..
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 ## exemple - `if obj:`
 
@@ -296,7 +292,7 @@ la règle pour les types prédéfinis est que dans un test
 `0`, `0.0`, `""`, `[]`, `set()`, `{}` sont considérés comme `False`  
 les autres valeurs sont considérées comme `True`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## méthodes spéciales
 
@@ -306,7 +302,7 @@ les méthodes spéciales sont toutes de la forme `__bidule__`
 on en a déjà vu 2 : `__init__` et `__repr__`  
 le langage en prévoit plusieurs dizaines (optionnelles)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## exemple de méthode spéciale
 
@@ -327,11 +323,8 @@ que l'instruction `if person:`
 va s'exécuter avec les gens dont le nom n'est pas `nobody`
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 # une classe jouet
 # uniquement à but pédagogique ...
 
@@ -385,8 +378,6 @@ bool(real_person)
 bool(fake_person)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## résumé
 
 * on définit une classe avec le mot clé `class`
@@ -398,11 +389,11 @@ bool(fake_person)
 
 * grâce aux méthodes spéciales, on peut bien intégrer une classe dans le langage
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## la classe `Quaternion` - avancés
 
-+++ {"slideshow": {"slide_type": ""}}
++++
 
 **En option**
 
@@ -423,10 +414,6 @@ Application: une micro-classe qui implémente les quaternions
   $q = a + bi + cj + dk$ avec $(a, b, c, d) \in \mathbb{R}^4$
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 class Quaternion:
 
     def __init__(self, a, b, c, d):
@@ -453,11 +440,8 @@ class Quaternion:
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: slide
----
+:cell_style: split
+
 q0 = Quaternion(0, 0, 0, 0)
 q1 = Quaternion(1, 0, 0, 0)
 q_1 = Quaternion(-1, 0, 0, 0); q_1
@@ -508,8 +492,6 @@ q * i
 i * q
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 limitations pour cette version rustique :
 
 * manque des opérations
@@ -519,10 +501,6 @@ limitations pour cette version rustique :
 * ...
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: skip
----
     # pour affichage
     labels = ['', 'i', 'j', 'k']  
     # un code possible pour un affichage plus élégant

@@ -16,7 +16,7 @@ language_info:
 
 # opérateurs
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## arithmétiques
 
@@ -49,8 +49,6 @@ b = 25
 25 // 10
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## typage
 
 en Python tous les objets sont typés  
@@ -71,8 +69,6 @@ le comportement des opérateurs dépend du type
 # par un entier
 3 * 'abc'
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## arithmétiques - suite
 
@@ -115,8 +111,6 @@ d ** c # qu'il est grand !
 
 d ** c > 2 ** 64
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## comparaisons
 
@@ -162,8 +156,6 @@ a < b
 6 <= a <= 25 <= b <= 30
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## logiques
 
 ```{code-cell} ipython3
@@ -183,8 +175,6 @@ a < b
 # a != b
 not a == b
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## indexation avec `[]`
 
@@ -212,8 +202,6 @@ chaine[0]
 # les index négatifs commencent à la fin
 chaine[-1]
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## slices
 
@@ -263,8 +251,6 @@ chaine[:4:]
 # identique à juste
 chaine[:4]
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## slices et bornes
 
