@@ -591,8 +591,6 @@ df.head(1)
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # le code
 # option 2-bis
 # la méthode set_index avec son paramètre inplace à True modifie directement la table sans renvoyer une nouvelle dataframe

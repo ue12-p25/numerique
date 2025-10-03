@@ -512,8 +512,6 @@ vous pouvez utiliser un for-python pour parcourir la liste `cols` des noms des c
 # votre code
 ```
 
-+++ {"tags": []}
-
 4. que constatez-vous ?  
 quel type serait plus approprié pour ces colonnes ?
 

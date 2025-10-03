@@ -541,8 +541,6 @@ for c in minidf.columns:
     print(f"column {c:>12} has type {minidf.dtypes[c]} =?= {df[c].dtype}")
 ```
 
-+++ {"tags": []}
-
 4. que constatez-vous ?  
 quel type serait plus approprié pour ces colonnes ?
 

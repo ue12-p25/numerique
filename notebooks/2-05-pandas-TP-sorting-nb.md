@@ -167,21 +167,19 @@ qui permet de mettre ces lignes en début de dataframe lors du tri
 7. produire une nouvelle dataframe en ne gardant que les ages connus,
    et triée selon les ages, puis les prix de billet
 
-+++ {"tags": []}
++++
 
 ## tri d'une dataframe selon l'index
 
 en utilisant `df.sort_index()` il est possible de trier une dataframe  
 dans l'axe de ses index de ligne (ou même de colonnes)
 
-+++ {"tags": [], "cell_style": "center"}
++++ {"cell_style": "center"}
 
 1. reprenez la dataframe du Titanic, en choisissant toujours comme index `PassengerId`  
    utilisez la méthode des dataframe `sort_index` pour la trier dans l'ordre des index
 
 ```{code-cell} ipython3
-:tags: []
-
 # votre code
 ```
 

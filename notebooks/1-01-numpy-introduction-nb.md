@@ -16,7 +16,7 @@ language_info:
 
 # Python-numérique - introduction
 
-+++ {"tags": []}
++++
 
 ````{admonition} Rappel
 
@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 ````
 
-+++ {"tags": []}
++++
 
 ## contenu de ce notebook
 
@@ -44,7 +44,7 @@ que celle-ci n'existe pas en `python`
 d'où le recours à la librairie `numpy`
 ````
 
-+++ {"tags": []}
++++
 
 ## objectifs de Python-numérique
 
@@ -110,8 +110,6 @@ import matplotlib as mpl # la version de matplotlib
 print(f'matplotlib version {mpl.__version__}')
 ```
 
-+++ {"tags": []}
-
 ## les données
 
 
@@ -138,7 +136,7 @@ mais avant de parler de cela, regardons les différentes formes de données que 
 
 ***
 
-+++ {"tags": []}
++++
 
 ## différents formats de données
 
@@ -201,7 +199,7 @@ certaines, *SibSp* et *Parch*, sont impossibles à comprendre sans les **meta-da
 
 ***
 
-+++ {"tags": [], "lines_to_next_cell": 0}
++++ {"lines_to_next_cell": 0}
 
 ### la matrice
 
@@ -227,7 +225,7 @@ et on ne va pas coder une fonction qui doit déjà exister !
 
 ***
 
-+++ {"tags": []}
++++
 
 ### table d'observations
 
@@ -273,7 +271,7 @@ ce format s'appelle un `CSV` pour **C**omma-**S**eparated-**V**alues
 
 ***
 
-+++ {"tags": []}
++++
 
 ### la série temporelle
 
@@ -326,7 +324,7 @@ puis on voit 6 mesures reliées au covid
 
 ***
 
-+++ {"tags": []}
++++
 
 ### l'image
 
@@ -359,7 +357,7 @@ les valeurs des pixels RGB
 
 ***
 
-+++ {"tags": []}
++++
 
 ## représenter ces données en mémoire
 
@@ -391,7 +389,7 @@ il faut leur trouver une **forme commune**
 
 ***
 
-+++ {"tags": []}
++++
 
 ### ces données sont des tableaux multi-dimensionnels
 
@@ -422,7 +420,7 @@ et des tableaux **hétérogènes**
 
 ***
 
-+++ {"tags": []}
++++
 
 ### pas de type Python adéquat
 

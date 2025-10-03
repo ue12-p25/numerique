@@ -213,7 +213,7 @@ le paramètre `how` peut prendre les valeurs suivantes:
 
 (il y a aussi `cross`, mais c'est plus particulier comme usage..)
 
-+++ {"tags": []}
++++
 
 ### concat() *vs* merge()
 

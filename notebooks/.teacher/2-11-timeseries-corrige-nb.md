@@ -234,8 +234,6 @@ df.Date.dtype
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # prune-end
 ```
 
@@ -287,8 +285,6 @@ print(f"après {df.shape=}")
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # prune-end
 ```
 
@@ -833,8 +829,6 @@ pd.DataFrame({
 
 # prune-end
 ```
-
-+++ {"tags": []}
 
 ### exercice 7: `resample` et `rolling`
 

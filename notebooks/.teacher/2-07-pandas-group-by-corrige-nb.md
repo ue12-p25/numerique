@@ -906,8 +906,6 @@ by_sex.get_group('female')
 ````
 
 ```{code-cell} ipython3
-:tags: []
-
 # on se remet dans le contexte
 df = pd.read_csv('data/titanic.csv', index_col=0)
 by_sex = df.groupby(by='Sex')

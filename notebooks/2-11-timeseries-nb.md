@@ -631,7 +631,7 @@ reproduisez le dessin ci-dessus, mais
 
 que constatez-vous aux extrémités ?
 
-+++ {"tags": []}
++++
 
 ### exercice 7: `resample` et `rolling`
 

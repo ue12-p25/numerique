@@ -281,27 +281,21 @@ df_sorted.sort_values(by='Age', ascending=True, axis=0, na_position='first').hea
 df[df.Age.notna()].sort_values(by=['Age', 'Fare'])
 ```
 
-+++ {"tags": []}
-
 ## tri d'une dataframe selon l'index
 
 en utilisant `df.sort_index()` il est possible de trier une dataframe  
 dans l'axe de ses index de ligne (ou même de colonnes)
 
-+++ {"tags": [], "cell_style": "center"}
++++ {"cell_style": "center"}
 
 1. reprenez la dataframe du Titanic, en choisissant toujours comme index `PassengerId`  
    utilisez la méthode des dataframe `sort_index` pour la trier dans l'ordre des index
 
 ```{code-cell} ipython3
-:tags: []
-
 # votre code
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # prune-cell
 
 cols = ['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'Fare' ]

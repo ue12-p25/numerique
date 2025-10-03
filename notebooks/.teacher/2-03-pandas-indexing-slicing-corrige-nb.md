@@ -852,8 +852,6 @@ selection
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # prune-cell
 len(selection)
 ```
@@ -940,8 +938,6 @@ le type du résultat dépend bien entendu de la dimension de la sélection
 ````
 
 ```{code-cell} ipython3
-:tags: []
-
 # le code
 df.loc[
     # dans la dimension des lignes: une liste
