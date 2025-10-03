@@ -558,7 +558,3 @@ du coup pour contruire un **tuple** qui ne contient que un élément, je vous re
 ```{code-cell} ipython3
 # votre code
 ```
-
-```{code-cell} ipython3
-
-```

@@ -609,7 +609,3 @@ tab[0] = 99
 print(f"after {tab=}")
 print(f"after {tab1=}")
 ```
-
-```{code-cell} ipython3
-
-```
