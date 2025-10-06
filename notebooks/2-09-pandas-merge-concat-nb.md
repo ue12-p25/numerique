@@ -10,11 +10,11 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
-# agrégations des données
+# accumulation des données
 
 ```{code-cell} ipython3
 import pandas as pd
@@ -24,7 +24,7 @@ import numpy as np
 +++ {"tags": ["framed_cell"], "jp-MarkdownHeadingCollapsed": true}
 
 ````{admonition} →
-parfois on obtient les données par **plusieurs canaux**, qu'il faut agréger dans une seule dataframe
+parfois on obtient les données par **plusieurs canaux**, qu'il faut accumuler dans une seule dataframe
 
 les outils à utiliser pour cela sont multiples  
 pour bien choisir, il est utile de se poser en priorité la question de savoir 
@@ -35,12 +35,12 @@ illustrations:
 
 * on recueille les données à propos du coronavirus, qui sont disponibles par mois  
   chaque fichier a la même structure - disons 2 colonnes: *deaths*, *confirmed*  
-  l'assemblage consiste donc à agréger les dataframes **en hauteur**
+  l'assemblage consiste donc à accumuler les dataframes **en hauteur**
 
 * on recueille les notes des élèves d'une classe de 20 élèves  
   chaque prof fournit un fichier excel avec les notes de sa matière  
   chaque table contient 20 lignes  
-  il faut cette fois agréger les dataframes **en largeur**
+  il faut cette fois accumuler les dataframes **en largeur**
 
 ```{note}
 cette présentation est simpliste, elle sert uniquement à fixer les idées
