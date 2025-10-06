@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # regrouper par critères
@@ -654,14 +654,71 @@ df.pivot_table(
 
 ### `pivot_table()` et agrégation
 
-````{admonition} →
+`````{admonition} →
 dans le cas présent on n'a **pas précisé** la fonction d'**aggrégation**  
 du coup c'est la moyenne qui est utilisée, sur la valeur de `Survived`  
 qui vaut 0 ou 1 selon les cas, et donc on obtient le taux de survie  
 
-**exercice**
-obtenez la même table que ci-dessus avec cette fois le nombre de survivants
+````{admonition} → les aggrégations prédéfinies
+:class: admonition-small dropdown
+
+Quand on utilise le paramètre `aggfunc` de `pivot_table()`, on doit en principe lui passer une - ou plusieurs - fonctions;  
+cela dit par commodité `pandas` permet aussi de passer une chaine de caractères, pour les agrégations les plus courantes;
+
+voici la liste des raccourcis connus - ils correspondent à la méthode du même nom dans la classe `Series`
+
+```{list-table}
+:header-rows: 1
+
+* - Function
+  -	Description
+* - count
+  -	Number of non-null observations
+* - size
+  -	Number of rows (including NaN)
+* - nunique
+  -	Number of unique values
+* - first
+  -	First valid observation
+* - last
+  -	Last valid observation
+* - sum
+  -	Sum of values
+* - prod
+  -	Product of values
+* - mean
+  -	Mean of values
+* - median
+  -	Median of values
+* - min
+  -	Minimum value
+* - max
+  -	Maximum value
+* - std
+  -	Standard deviation
+* - var
+  -	Variance
+* - sem
+  -	Standard error of mean
+* - skew
+  -	Sample skewness
+* - kurt
+  -	Sample kurtosis
+```
 ````
+
+````{admonition} Exercice
+:class: tip
+
+1. obtenez la même table que ci-dessus avec cette fois le nombre de survivants
+1. pareil en affichant pour chaque groupe: 
+   - le nombre de personnes concernées
+   - le nombre de survivants 
+   - **et** le taux de survie  
+   que pensez-vous de la présentation du résultat ?
+````
+
+`````
 
 ```{code-cell} ipython3
 # votre code
