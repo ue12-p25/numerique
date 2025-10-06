@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # conditions et masques
@@ -536,7 +536,10 @@ for c in cols:
 minidf = df[cols]
 print(f"{minidf.dtypes=}")
 
-# du coup on pourrait faire
+# séparateur
+print(10*'-')
+
+# du coup on pourrait aussi faire
 for c in minidf.columns:
     print(f"column {c:>12} has type {minidf.dtypes[c]} =?= {df[c].dtype}")
 ```
@@ -573,6 +576,7 @@ prune-cell 4.
 # prune-cell 1.
 
 df = pd.read_csv('data/titanic.csv', index_col='PassengerId')
+df.head(2)
 ```
 
 2. comptez les valeurs manquantes: dans toute la table, par colonne et par ligne
@@ -586,15 +590,15 @@ df = pd.read_csv('data/titanic.csv', index_col='PassengerId')
 
 # df.isna().to_numpy().sum(), df.isna().sum(axis=1), df.isna().sum(axis=0),
 
+print(10*'-', 'total')
+print(df.isna().sum().sum())
 print(10*'-', 'par colonne')
 print(df.isna().sum())
 print(10*'-', 'par ligne')
 print(df.isna().sum(axis=1))
-print(10*'-', 'total')
-print(df.isna().sum().sum())
 ```
 
-3. calculez le nombre de classes du bateau
+1. calculez le nombre de classes du bateau
 
 ```{code-cell} ipython3
 # votre code
@@ -653,6 +657,7 @@ df['Sex'].value_counts(normalize=True)#/len(df)
 ```
 
 7. calculez le taux de survie des hommes et des femmes par classes  
+   i.e. pour chacun des 6 groupes (hommes/femmes) x (classe 1/2/3)  
    (notez qu'on reverra ces décomptes d'une autre manière)
 
 ```{code-cell} ipython3
@@ -660,39 +665,68 @@ df['Sex'].value_counts(normalize=True)#/len(df)
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
+# prune-cell
 
+# DISCLAIMER
+
+# OF COURSE: this is better done with a pivot_table()
+# here we just feel the pain of doind it manually..
+```
+
+```{code-cell} ipython3
 # prune-cell 7.
 
-# classe
-cls = 1
+# NOTE: in Python 'class' is a keyword
 
-# nb d'hommes
-pass_h_cls = ((df['Sex'] == 'male') & (df['Pclass'] == cls)).sum()
+# for one group, say
+cls, sex = 1, 'female'
 
-# nb de femmes
-pass_f_cls = ((df['Sex'] == 'female') & (df['Pclass'] == cls)).sum()
+# the corresponding group is
+group_df = df[ (df.Sex == sex) & (df.Pclass == cls) ]
 
-# taux survie homme, femme de classe cls
-(   ((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Pclass'] == cls)).sum()/pass_h_cls,
-    ((df['Sex'] == 'female') & (df['Survived'] == 1) & (df['Pclass'] == cls)).sum()/pass_f_cls )
-```
+# and the corresponding survival rate is
+rate = group_df.Survived.sum() / len(group_df)
 
-```{code-cell} ipython3
-:lines_to_next_cell: 2
-
-# prune-cell
-
-c1 = (df['Pclass'] == 1).sum()
-c2 = (df['Pclass'] == 2).sum()
-c3 = (df['Pclass'] == 3).sum()
+print(f"for {cls=} and {sex=} we have a survival rate of {rate=:.2f}")
 ```
 
 ```{code-cell} ipython3
 # prune-cell
 
-(   ((df['Sex'] == 'female') & (df['Survived'] == 1) & (df['Pclass'] == 1)).sum()/c1,
-    ((df['Sex'] == 'male') & (df['Survived'] == 1) & (df['Pclass'] == 1)).sum()/c1     )
+# so all we need to do is loop over the possible groups
+
+for cls in df.Pclass.unique():
+    for sex in df.Sex.unique():
+        group_df = df[ (df.Sex == sex) & (df.Pclass == cls) ]
+        rate = group_df.Survived.sum() / len(group_df)
+        print(f"for {cls=} and {sex=} we have a survival rate of {rate=:.2f}")        
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+# this was not required, but out of curiosity
+# how coud we store these results in a dataframe to mimick the outcome of pivot_table
+
+results = {}
+
+for cls in df.Pclass.unique():
+    for sex in df.Sex.unique():
+        group_df = df[ (df.Sex == sex) & (df.Pclass == cls) ]
+        rate = group_df.Survived.sum() / len(group_df)
+        # index results by the group tuple
+        results[cls, sex] = rate
+
+# now we can create a series from this dict
+series = pd.Series(results)
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+# we're almost there, just "move" the index level 1 to the columns space
+
+series.unstack()
 ```
 
 ***

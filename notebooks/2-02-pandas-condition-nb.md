@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # conditions et masques
@@ -539,7 +539,7 @@ quel type serait plus approprié pour ces colonnes ?
 # votre code
 ```
 
-3. calculez le nombre de classes du bateau
+1. calculez le nombre de classes du bateau
 
 ```{code-cell} ipython3
 # votre code
@@ -565,6 +565,7 @@ quel type serait plus approprié pour ces colonnes ?
 ```
 
 7. calculez le taux de survie des hommes et des femmes par classes  
+   i.e. pour chacun des 6 groupes (hommes/femmes) x (classe 1/2/3)  
    (notez qu'on reverra ces décomptes d'une autre manière)
 
 ```{code-cell} ipython3

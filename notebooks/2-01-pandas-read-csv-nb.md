@@ -812,8 +812,8 @@ ou passez à la question 2 pour être aidé
    passez-lui la **liste des noms des colonnes** puisqu'elles ne sont pas  mentionnées dans le fichier (à récupérer plus haut)  
   ````{admonition} *spoiler*
   :class: dropdown tip
-  
-   voyez les paramètres `sep`, `header` et `names`
+
+   voyez notamment les paramètres `sep` et `names`
    ````
 
 ```{code-cell} ipython3

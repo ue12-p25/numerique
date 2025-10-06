@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # indexation et accès aux sous-tableaux
@@ -330,6 +330,7 @@ commençons par la sélection multiple:
 * si on ne précise pas les colonnes, on les obtient toutes  
 * on peut mentionner simplement plusieurs index (ou indices)  
   que l'on passe **dans une liste**
+* on peut aussi passer **un masque**
 
 
 quelques exemples
@@ -343,26 +344,29 @@ df.loc[552]
 
 # on peut passer des listes à loc/iloc
 # pour sélectionner explicitement
-# plusieurs lignes / colonnesa
+# plusieurs lignes ou colonnes
+
+# ici 2 lignes
 df.loc[[552, 832]]
 -> une dataframe avec deux lignes correspondant
    aux deux passagers 552 et 832
-   
-df.loc[[552, 832], ['Name', 'Pclass']]
--> la même dataframe mais réduite à deux colonnes  
 
-# à nouveau pour les indices de colonnes
-# la colonne d'index ne compte pas
+# ici 2 lignes et 2 colonnes
+df.loc[[552, 832], ['Name', 'Pclass']]
+-> la même dataframe mais réduite à deux colonnes
+
+# avec iloc
+# ATTENTION: pour les indices de colonnes
+# la colonne d'index ne compte pas, évidemment
 df.iloc[[0, -1], [2, 1]]
 -> la même
 
-# pour sélectionner plusieurs colonnes
-# le plus simple c'est quand même cette forme
-df[['Name', 'Pclass']]
--> 2 colonnes, toutes les lignes
-
-# mais bien sûr on peut aussi faire
+# plusieurs colonnes
+# une forme équivalente à df[['Name', 'Pclass']]
 df.loc[:, ['Name', 'Pclass']]
+
+# .loc avec un masque
+df.loc[df.Pclass == 1, ['Name', 'Sex']]
 ```
 ````
 
@@ -371,6 +375,7 @@ df.loc[552]
 ```
 
 ```{code-cell} ipython3
+# indexation par une liste
 # bien sûr les index choisis
 # ne pas forcément contigus
 df.loc[[552, 832]]
@@ -387,13 +392,13 @@ df.iloc[[0, -1], [2, 1]]
 ```
 
 ```{code-cell} ipython3
-# plusieurs colonnes : forme #1 (le plus simple)
-df[['Name', 'Pclass']]
+# plusieurs colonnes avec .loc
+df.loc[:, ['Name', 'Pclass']]
 ```
 
 ```{code-cell} ipython3
-# plusieurs colonnes : forme #2 (le plus explicite)
-df.loc[:, ['Name', 'Pclass']]
+# .loc avec un masque (généralement sur les lignes)
+df.loc[df.Pclass == 1, ['Name', 'Sex']]
 ```
 
 +++ {"tags": ["framed_cell"]}
@@ -401,9 +406,8 @@ df.loc[:, ['Name', 'Pclass']]
 ### slicing `pandas` et bornes
 
 ````{admonition} →
-on va accéder à des sous-dataframe  
-en étendant l'opération d'indexation `[i]` à des slices `[start:stop:step]`  
 comme en `python` et `numpy`
+on peut étendre l'opération d'indexation `[i]` à des slices `[start:stop:step]`  
 
 **ATTENTION** pour le *slicing*  
 il y a une **grande différence** entre `loc` et `iloc`  
@@ -424,7 +428,7 @@ il y a une **grande différence** entre `loc` et `iloc`
 ````{admonition} →
 
 on peut slicer sur les index  
-**MAIS ATTENTION** pour les **index** `stop` est compris  
+**MAIS ATTENTION** avec `.loc[]` (pour les **index** donc), `stop` est inclus  
 
 **exemple**  
 regardons les index (lignes et colonnes)  
@@ -507,17 +511,15 @@ df.iloc[1:7, 1:4].shape
 
 +++ {"tags": ["framed_cell"]}
 
-### localiser des lignes et des colonnes
+### localiser une ligne ou une colonne
 
 ````{admonition} →
-***ou sous-lignes et sous-colonnes***
+:class: dropdown
 
-avec le *slicing*, par indice et index, on peut obtenir des lignes et des colonnes  
-ou des sous-lignes et des sous-colonnes
+***ou un extrait***
 
-on obtient des objets de type `pandas.Series`
-
-on peut slicer, par index, pour obtenir une ligne
+par exemple on peut slicer, par index, pour obtenir une ligne  
+(dans ce cas on obtient un objet de type `pandas.Series`)
 
 ```python
 df.loc[552, :] # première ligne (toutes les colonnes)
@@ -559,7 +561,7 @@ df.iloc[:, 0].shape
 
 ````
 
-```{code-cell} ipython3
+<!-- ```{code-cell} ipython3
 # le code
 df.loc[552, :].shape
 df.loc[552].shape
@@ -579,7 +581,7 @@ df.iloc[0].shape
 ```{code-cell} ipython3
 # le code
 df.iloc[:, 0].shape
-```
+``` -->
 
 ***
 
@@ -609,7 +611,7 @@ df.iloc[:, 0].shape
 # votre code
 ```
 
-4. localisez les 3 derniers éléments de la ligne d'index `40`
+4. localisez les 3 derniers éléments (colonnes) de la ligne d'index `40`
 
 ```{code-cell} ipython3
 # votre code
@@ -619,10 +621,6 @@ df.iloc[:, 0].shape
 
 ```{code-cell} ipython3
 # votre code
-```
-
-```{code-cell} ipython3
-df['Cabin'].iloc[-4:]
 ```
 
 6. fabriquez une dataframe contenant
@@ -638,11 +636,11 @@ df['Cabin'].iloc[-4:]
 
 +++ {"tags": ["framed_cell"]}
 
-### rappel sur les conditions
+### rappel sur les masques
 
 ````{admonition} →
 nous avons vu [les masques](#label-pandas-mask), qui permettent  
-d'appliquer des conditions à une colonne ou à une data-frame  
+d'appliquer des conditions à une colonne ou à une dataframe  
 et comment utiliser ce tableau de booléens pour des décomptes
 
 ```python
@@ -661,25 +659,28 @@ et **devez** utiliser `&`, `|` et `~`
 ou `np.logical_and`, `np.logical_or` et `np.logical_not`
 ```
 
-taux de survie des passagers femmes de première classe
-
-```python
-
-( ((df['Sex'] == 'female') & (df['Survived'] == 1) & (df['Pclass'] == 1)).sum()
-  /((df['Sex'] == 'female') & (df['Pclass'] == 1)).sum()   )
-
-```
 ````
 
 ```{code-cell} ipython3
+# le code pour calculer les taux de survie
+# - global
+# - des passagers femmes de première classe
+
 # le code
 df = pd.read_csv('data/titanic.csv', index_col='PassengerId')
 
-df_survived = (df['Survived'] == 1)
-print(   df_survived.sum()/len(df)   )
+mask_survived = (df['Survived'] == 1)
 
-( ((df['Sex'] == 'female') & (df['Survived'] == 1) & (df['Pclass'] == 1)).sum()
-  /((df['Sex'] == 'female') & (df['Pclass'] == 1)).sum()   )
+rate_global = mask_survived.sum()/len(df)
+print(f"taux survie global = {rate_global:.2f}")
+
+# the group
+mask_female_1 = (df['Sex'] == 'female') & (df['Pclass'] == 1)
+# survived in the group
+mask_female_1_survived = mask_female_1 & mask_survived
+
+rate_group = mask_female_1_survived.sum() / mask_female_1.sum()
+print(f"rate in the group {rate_group:.2f}")
 ```
 
 +++ {"tags": ["framed_cell"]}
@@ -717,7 +718,7 @@ doit être sélectionnée ou non
 ```{code-cell} ipython3
 # le code
 # on fabrique une dataframe qui contient seulement les femmes
-df [ df['Sex'] == 'female' ]
+df.loc [ df['Sex'] == 'female' ]
 ```
 
 +++ {"tags": ["framed_cell"]}

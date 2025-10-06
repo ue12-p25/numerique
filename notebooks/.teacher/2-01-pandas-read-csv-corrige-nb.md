@@ -820,8 +820,8 @@ df.head(2)
    passez-lui la **liste des noms des colonnes** puisqu'elles ne sont pas  mentionnées dans le fichier (à récupérer plus haut)  
   ````{admonition} *spoiler*
   :class: dropdown tip
-  
-   voyez les paramètres `sep`, `header` et `names`
+
+   voyez notamment les paramètres `sep` et `names`
    ````
 
 ```{code-cell} ipython3
@@ -837,8 +837,17 @@ COLUMNS = [
     'Ticket', 'Fare', 'Cabin', 'Embarked',
 ]
 
-df = pd.read_csv(file, sep=';', header=None, names=COLUMNS)
+df = pd.read_csv(file, sep=';', names=COLUMNS)
 df.head(2)
+```
+
+```{code-cell} ipython3
+# prune-cell 2.
+
+# could also pass header=None but it makes no difference as we also pass names=
+print("without passing header", df.shape)
+df = pd.read_csv(file, sep=';', header=None, names=COLUMNS)
+print("when passing header", df.shape)
 ```
 
 3. appliquer la méthode `describe` aux colonnes `Age` et `Fare`  
