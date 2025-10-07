@@ -15,7 +15,7 @@ language_info:
   nbconvert_exporter: python
 ---
 
-# TP sur le tri d'une dataframe
+# TP trier une dataframe
 
 +++
 
