@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # `matplotlib` et `pandas`
@@ -280,7 +280,7 @@ df_animals.plot.bar(x='lifespan', y='speed');
 
 +++ {"tags": ["framed_cell"]}
 
-## la colonne des `'Name'`
+## le type de la colonne `'Name'`
 
 ````{admonition} →
 revenons à nos `iris`
@@ -325,7 +325,7 @@ df['Name'].dtype
 ce type est `object` ici ce sont des objets de type chaînes de caractères
 
 pourtant ...  
-la colonne des noms des `iris` est plutôt une colonne de type catégorie  
+la colonne des noms des `iris` est **plutôt une colonne de type catégorie**  
 avec ses 3 valeurs `Iris-versicolor`, `Iris-virginica` et `Iris-setosa`
 
 nous allons changer le type des éléments de la série `df['Name']`  
@@ -342,7 +342,7 @@ df['Name'].value_counts()
 df['Name'].dtype
 ```
 
-## encodage des `'Names'` en codes de catégorie
+## encodage de `'Name'` en catégories
 
 +++
 
@@ -350,9 +350,7 @@ df['Name'].dtype
 
 la colonne `df['Name']` est de type `pandas.Series`  
 
-avec la méthode `astype` des `pandas.Series`  
-on crée une nouvelle colonne    
-avec ici le type `'category'`
+avec la méthode `astype('category')` on crée une nouvelle série mais **de type catégoriel**
 
 ```python
 col = df['Name'].astype('category')
@@ -364,8 +362,7 @@ Name: Name, dtype: category
 Categories (3, object): ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
 ```
 
-**remarquez** l'ordre dans la liste des catégories  
-(`'Iris-setosa'` est à l'indice 0...)
+**remarquez** l'ordre dans la liste des catégories (`'Iris-setosa'` est à l'indice 0...)
 
 
 
@@ -374,30 +371,27 @@ les **codes** générés par `pandas` pour les trois catégories d'`iris`
 
 **à savoir:** sur une colonne de type `category`  
 - `cat` permet d'accéder aux méthodes et attributs des objets de type category  
-(comme `str` le permet sur les colonnes d'éléments de type `str`)
+  (comme `str` le permet sur les colonnes d'éléments de type `str`)
 - l'attribut `codes` des colonnes category permet d'accéder aux codes numériques  
-donné par `pandas` aux 3 catégories  
-(dans l'ordre de la liste des catégories)
-
+  donné par `pandas` aux 3 catégories (dans l'ordre de la liste des catégories)
 - on crée une nouvelle colonne `'Name-code'` avec ces codes  
-on regarde ce qu'elle contient
+  on regarde ce qu'elle contient
 
-```python
-df['Name-code'] = col.cat.codes
-df['Name-code'].value_counts()
-->
-Name-code
-0    50
-1    50
-2    50
-Name: count, dtype: int64
-```
+  ```python
+  df['Name-code'] = col.cat.codes
+  df['Name-code'].value_counts()
+  ->
+  Name-code
+  0    50
+  1    50
+  2    50
+  Name: count, dtype: int64
+  ```
 
 -------------------------
 
 À quoi cela va-t-il nous servir ?  
-par exemple à améliorer nos visualisations  
-où ces codes peuvent servir de code-couleur lors d'affichage des Iris  
+par exemple à améliorer nos visualisations où ces codes peuvent servir de code-couleur lors d'affichage des Iris  
 (nous y reviendrons lors de `scatter`)
 ````
 
