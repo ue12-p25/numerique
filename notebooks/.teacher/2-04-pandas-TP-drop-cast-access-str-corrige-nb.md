@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # TP on the moon
@@ -28,10 +28,18 @@ language_info:
 * conversion d'une colonne en type numérique avec `to_numeric` et `astype` 
 * accès et modification des chaînes de caractères contenues dans une colonne avec l'accesseur `str` des `Series`
 * génération de la liste Python des valeurs d'une série avec `tolist`
-   
-**N'oubliez pas d'utiliser le help en cas de problème.**
 
-**Répartissez votre code sur plusieurs cellules**
+```{admonition} pensez à l'aide en ligne (rappels)
+:class: dropdown tip
+
+vous avez plein de moyens pour obtenir de l'aide; notamment dans ipython ou jupyter:
+
+- pensez à utiliser la complétion avec Tab
+- utiliser 'Shift-Tab' pour voir l'aide de la fonction que vous venez de taper - genre pour voir les paramètres attendus
+- on peut aussi faire par exemple `pd.DataFrame.drop?` pour obtenir de l’aide, mais il faut valider la cellule, c'est souvent moins pratique que `Shift-Tab`
+
+il y a aussi la méthode *old-school* qui consiste à appeler `help(une_fonction)`, qui fonctionne dans Python de base - mais en pratique c'est sous-optimal
+```
 
 +++
 
@@ -214,15 +222,18 @@ df['Mass (lb)'].isna().sum()
 10. 1. cette solution ne vous satisfait pas, vous ne voulez perdre aucune valeur  
        (même au prix de valeurs approchées)  
     1. vous décidez vaillamment de modifier les `str` en leur enlevant les caractères `<` et `>`  
-       afin de pouvoir en faire des entiers
-    - *hint:*  
+       afin de pouvoir en faire des entiers  
+       remplacez les `<` et les `>` par des '' (chaîne vide)
+       ````{admonition} *hint*
+       :class: dropdown tip
+
        les `pandas.Series` formées de chaînes de caractères sont du type `pandas` `object`  
        mais elle possèdent un accesseur `str` qui permet de leur appliquer les méthodes python des `str`  
        (comme par exemple `replace`)
         ```python
         df['Mass (lb) orig'].str
         ```
-        remplacer les `<` et les `>` par des '' (chaîne vide)
+        ````
      3. utilisez la méthode `astype` des `Series` pour la convertir finalement en `int`
 
 ```{code-cell} ipython3
@@ -273,8 +284,12 @@ df['Mass (kg)'] = (df['Mass (lb) clean'] / 2.205).astype(int)
 ```
 
 12. 1. Quels sont les pays qui ont laissé des objets sur la lune ?
-    2. Combien en ont-ils laissé en pourcentage (pas en nombre) ?  
-     *hint:* regardez les paramètres de `value_counts`
+    2. Combien en ont-ils laissé en pourcentage (pas en nombre) ?
+       ```{admonition} *hint*
+       :class: dropdown tip
+       
+       regardez les paramètres de `value_counts`
+       ```
 
 ```{code-cell} ipython3
 # votre code
@@ -326,7 +341,7 @@ df.groupby(by=['Country'], axis=0)['Mass (kg)'].sum()
 
 14. 1. quel pays a laissé l'objet le plus léger ?  
 
-````{admonition} tip
+````{admonition} *hint*
 :class: dropdown tip
 
 voyez les méthodes `Series.idxmin()` et `Series.argmin()`
@@ -373,9 +388,11 @@ df.loc[df['Mass (kg)'].argmin(), 'Country']
 ```
 
 15. 1. y-a-t-il un Memorial sur la lune ?  
-     *hint:*  
-     en utilisant l'accesseur `str` de la colonne `'Artificial object'`  
-     regardez si une des descriptions contient le terme `'Memorial'`
+       ````{admonition} *hint*
+       :class: dropdown tip
+       en utilisant l'accesseur `str` de la colonne `'Artificial object'`  
+       regardez si une des descriptions contient le terme `'Memorial'`
+       ````
     2. quel est le pays qui a mis ce mémorial ?
 
 ```{code-cell} ipython3
