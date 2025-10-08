@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # création de dataframe
@@ -27,50 +27,33 @@ de très nombreuses voies sont possibles pour créer une dataframe par programme
 en voici quelques-unes à titre d'illustration  
 voyez la documentation de `pd.DataFrame?` pour les détails
 
-+++ {"tags": ["framed_cell"]}
++++
 
-### à partir du dict Python des colonnes
+## à partir d'une liste de dicts (les lignes)
 
-````{admonition} →
-avec la méthode `pandas.DataFrame`  
-on peut créer un objet de type `pandas.DataFrame`
+```{code-cell} ipython3
+lines_as_dicts = [
+    {'name': 'snail',    'speed': 0.1,  'lifespan': 2},
+    {'name': 'pig',      'speed': 17.5, 'lifespan': 8},
+    {'name': 'elephant', 'speed': 40,   'lifespan': 70},
+    {'name': 'rabbit',   'speed': 48,   'lifespan': 1.5},
+]
 
-
-le dictionnaire des colonnes
-
-```python
-cols_dict = {'names' : ['snail', 'pig', 'elephant', 'rabbit',
-                        'giraffe', 'coyote', 'horse'],
-             'speed' : [0.1, 17.5, 40, 48, 52, 69, 88],
-             'lifespan' : [2, 8, 70, 1.5, 25, 12, 28], }
+pd.DataFrame(lines_as_dicts)
 ```
 
++++ {"tags": []}
 
-création de la `pandas.DataFrame`
-
-```python
-df = pd.DataFrame(cols_dict)
-df
-
-->  names     speed   lifespan
-0    snail    0.1     2.0
-1    pig      17.5    8.0
-2    elephant 40.0    70.0
-3    rabbit   48.0    1.5
-4    giraffe  52.0    25.0
-5    coyote   69.0    12.0
-6    horse    88.0    28.0
-```
-````
+## à partir d'un dict de list (les colonnes)
 
 ```{code-cell} ipython3
 # le code
-import pandas as pd
-import numpy as np
-cols_dict = {'names' : ['snail', 'pig', 'elephant', 'rabbit',
-                        'giraffe', 'coyote', 'horse'],
-             'speed' : [0.1, 17.5, 40, 48, 52, 69, 88],
-             'lifespan' : [2, 8, 70, 1.5, 25, 12, 28], }
+
+cols_dict = {
+    'name' :     ['snail', 'pig', 'elephant', 'rabbit'],
+    'speed' :    [0.1,      17.5,         40,       48],
+    'lifespan' : [2,           8,         70,      1.5],
+}
 
 df = pd.DataFrame(cols_dict)
 df
@@ -78,54 +61,24 @@ df
 
 +++ {"tags": ["framed_cell"]}
 
-### à partir du `dict` des colonnes et d'une `list` (d'index) des lignes
-
-````{admonition} →
-avec la méthode `pandas.DataFrame`
-
-le `dictionnaire` des id des colonnes  
-la `liste` des id des lignes
-
-```python
-cols_dict = {'speed' : [0.1, 17.5, 40, 48, 52, 69, 88],
-             'lifespan' : [2, 8, 70, 1.5, 25, 12, 28], }
-
-line_ids =  ['snail', 'pig', 'elephant', 'rabbit',
-             'giraffe', 'coyote', 'horse']
-```
-
-création de la `pandas.DataFrame`
-
-```python
-df = pd.DataFrame(cols_dict, index = line_ids)
-df
-->       speed   lifespan
-snail    0.1     2.0
-pig      17.5    8.0
-elephant 40.0    70.0
-rabbit   48.0    1.5
-giraffe  52.0    25.0
-coyote   69.0    12.0
-horse    88.0    28.0
-```
-
-on peut ne pas lui passer la liste des id des lignes
-````
+## pareil avec un index
 
 ```{code-cell} ipython3
-cols_dict = {'speed' : [0.1, 17.5, 40, 48, 52, 69, 88],
-             'lifespan' : [2, 8, 70, 1.5, 25, 12, 28], }
+# le même effet que la précédente, si on avait mis 'name' commme index
 
-line_ids =  ['snail', 'pig', 'elephant', 'rabbit',
-             'giraffe', 'coyote', 'horse']
+cols_dict = {
+    'speed' :    [0.1,      17.5,         40,       48],
+    'lifespan' : [2,           8,         70,      1.5],
+}
 
-df = pd.DataFrame(cols_dict, index = line_ids)
-df.values
+line_ids =  ['snail', 'pig', 'elephant', 'rabbit']
+
+pd.DataFrame(cols_dict, index = line_ids)
 ```
 
 +++ {"tags": ["framed_cell"]}
 
-### à partir d'un `numpy.ndarray`
+## à partir d'un tableau numpy
 
 ````{admonition} →
 avec la méthode `pandas.DataFrame`
@@ -133,96 +86,40 @@ avec la méthode `pandas.DataFrame`
 à partir d'un `numpy.ndarray` qui décrit la *table désirée*  
 attention à la forme
 
-et attention au `type`  
-le type des éléments d'un `numpy.ndarray` est homogène  
-(si vous mélangez des `float` et des `str` vous n'avez plus que des string à-la-`numpy`...)
-
-le `numpy.ndarray`
-
-```python
-nd = np.array([[ 0.1,  2. ],
-               [17.5,  8. ],
-               [40. , 70. ],
-               [48. ,  1.5],
-               [52. , 25. ],
-               [69. , 12. ],
-               [88. , 28. ]])
-
-```
-
-la `pandas.DataFrame`
-
-```python
-df = pd.DataFrame(nd)
-df
-->    0     1
-0    0.1   2.0
-1   17.5   8.0
-2   40.0  70.0
-3   48.0   1.5
-4   52.0  25.0
-5   69.0  12.0
-6   88.0  28.0
-```
+et attention au `type` puisque le type des éléments d'un `numpy.ndarray` est homogène  
 
 **remarquez**, sans index
 
 * les index des `2` colonnes sont leurs indices `0` à `1`
-* les index des `7` lignes sont leurs indices `0` à `6`
+* les index des `4` lignes sont leurs indices `0` à `3`
 
-on peut passer les index (colonnes et/ou lignes)  
-au constructeur de la `pandas.DataFrame`
-
-```python
-df = pd.DataFrame(nd,
-                  index=['snail', 'pig', 'elephant',
-                         'rabbit', 'giraffe', 'coyote', 'horse'],
-                  columns = ['speed', 'lifespan'])
-df
-->       speed   lifespan
-snail    0.1     2.0
-pig      17.5    8.0
-elephant 40.0    70.0
-rabbit   48.0    1.5
-giraffe  52.0    25.0
-coyote   69.0    12.0
-horse    88.0    28.0
-```
+comme ci-dessus on peut passer les index (colonnes et/ou lignes) au constructeur - les détails sont dans la doc
 ````
 
 ```{code-cell} ipython3
-# le code
-nd = np.array([[ 0.1,  2. ],
-               [17.5,  8. ],
-               [40. , 70. ],
-               [48. ,  1.5],
-               [52. , 25. ],
-               [69. , 12. ],
-               [88. , 28. ]])
+# sans préciser, on obtient un RangeIndex dans les deux directions
 
-df = pd.DataFrame(nd)
-df
+nd = np.array([
+    [ 0.1,  2. ],
+    [17.5,  8. ],
+    [40. , 70. ],
+    [48. ,  1.5],
+])
+
+pd.DataFrame(nd)
 ```
 
 ```{code-cell} ipython3
-# le code
-nd = np.array([[ 0.1,  2. ],
-               [17.5,  8. ],
-               [40. , 70. ],
-               [48. ,  1.5],
-               [52. , 25. ],
-               [69. , 12. ],
-               [88. , 28. ]])
+# ici on indique les index dans les deux directions
 
-df = pd.DataFrame(nd,
-                  index=['snail', 'pig', 'elephant',
-                         'rabbit', 'giraffe', 'coyote', 'horse'],
-                  columns = ['speed', 'lifespan'])
-df['Names'] = df.index
-df.values
+pd.DataFrame(
+    nd,
+    index=['snail', 'pig', 'elephant', 'rabbit'],
+    columns = ['speed', 'lifespan'],
+)
 ```
 
-### **exercice** : création de df et type des éléments
+## **exercice** : création de df et type des éléments
 
 +++
 
@@ -236,9 +133,7 @@ animals = [['snail', 0.1, 2.0],
            ['giraffe', 52.0, 25.0],
            ['coyote', 69.0, 12.0],
            ['horse', 88.0, 28.0]]
-```
 
-```{code-cell} ipython3
 # votre code
 ```
 
@@ -248,6 +143,8 @@ animals = [['snail', 0.1, 2.0],
 import numpy as np
 
 nd = np.array(animals)
+
+nd
 ```
 
 2. Affichez le type des éléments de la table  
@@ -290,12 +187,11 @@ nd
 3. créez une `pandas.DataFrame` **à partir du tableau numpy**  
    et avec pour noms de colonnes `'names'`, `'speed'` et `'lifespan'`
 
-````{admonition} le passage par numpy est-il une bonne idée ?
-:class: dropdown
-
-dans cet exercice on vous impose de passer par le tableau numpy, ce qui en l'espèce n'est pas forcément la meilleure idée  
-mais ça peut être intéressant de voir ce que ça donne ... :)
-````
+   ````{admonition} le passage par numpy est-il une bonne idée ?
+   :class: dropdown
+   dans cet exercice on vous impose de passer par le tableau numpy, ce qui en l'espèce n'est pas forcément la meilleure idée  
+   mais ça peut être intéressant de voir ce que ça donne ... :)
+   ````
 
 ```{code-cell} ipython3
 # votre code
