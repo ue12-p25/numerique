@@ -420,7 +420,7 @@ for group, subdf in by_class_sex:
 
 ## exercice sur les partitions `groupby`
 
-(déplacé en fin de notebook)
+[déplacé en fin de notebook](#label-exo-groupby)
 
 +++
 
@@ -946,7 +946,7 @@ IPython.display.display(df.pivot_table(values="Age", index="Sex", columns="Pclas
   - en fait, `pivot_table()` utilise `groupby` sans le dire
   - (et remet les résultats en forme grâce à `unstack()`, mais c'est pour les avancés...)
 
-+++ {"tags": ["level_advanced"]}
++++ {"tags": ["level_intermediate"]}
 
 ## pour en savoir plus
 
@@ -959,22 +959,20 @@ IPython.display.display(df.pivot_table(values="Age", index="Sex", columns="Pclas
 
 +++
 
+(label-exo-groupby)=
 ## exercice sur les partitions `groupby`
 
-(déplacé en fin de notebook)
-
-+++
-
-on veut calculer la partition avec, dans cet ordre, la classe `Pclass`, le genre `Sex`, et l'état de survie `Survived`
+on veut calculer la partition de la dataframe du titanic avec comme critères:  
+ la classe `Pclass`, le genre `Sex`, et l'état de survie `Survived`
 
 1. sans calculer la partition  
-proposez une manière de calculez le nombre probable de sous parties dans la partition
+   proposez une manière de calculer le nombre probable de sous parties dans la partition
 
 ```{code-cell} ipython3
 # votre code
 ```
 
-2. calculez la partition avec `pandas.DataFrame.groupby`  
+2. calculez la partition avec `df.groupby`  
    et affichez les nombres d'items par groupe
 
 ```{code-cell} ipython3
@@ -987,9 +985,7 @@ proposez une manière de calculez le nombre probable de sous parties dans la par
 # votre code
 ```
 
-4. **révision**  
-   refaites la même extraction sans utiliser un `groupby()`
-   en utilisant les conditions
+4. **révision**: refaites la même extraction sans utiliser un `groupby()` en utilisant un masque
 
 ```{code-cell} ipython3
 # votre code
@@ -999,14 +995,19 @@ proposez une manière de calculez le nombre probable de sous parties dans la par
    créez un `dict` avec les taux de survie par genre dans chaque classe
 
    vous devez obtenir quelque chose de ce genre
-```
-{('female', 1): 0.96,
- ('female', 2): 0.92,
- ('female', 3): 0.5,
- ('male', 1): 0.36,
- ('male', 2): 0.15,
- ('male', 3): 0.13}
-```
+   ```
+   {('female', 1): 0.96,
+    ('female', 2): 0.92,
+    ('female', 3): 0.5,
+    ('male', 1): 0.36,
+    ('male', 2): 0.15,
+    ('male', 3): 0.13}
+   ```
+
+   ```{admonition} indice
+   :class: dropdown tip
+   Voyez la méthode `to_dict()` sur les `Series`
+   ```
 
 ```{code-cell} ipython3
 # votre code
@@ -1017,7 +1018,7 @@ proposez une manière de calculez le nombre probable de sous parties dans la par
    avec comme nom `'taux de survie par genre dans chaque classe'`  
    **indice:** comme tous les types en Python  
    `pd.Series()` permet de créer des objets par programme  
-   voyez la documentation avec `pd.Series?`
+   voyez la documentation de `pd.Series`
 
 ```{code-cell} ipython3
 # votre code
