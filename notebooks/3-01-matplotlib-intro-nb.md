@@ -65,21 +65,15 @@ import pandas as pd
 
 +++ {"tags": ["framed_cell"]}
 
-## plusieurs *drivers*
+## `plt.figure()`, `plt.show()`
 
 ````{admonition} →
 dans ce premier notebook nous allons utiliser le driver `inline` - qui est le défaut
 
-en fait il en existe plusieurs autres, et notamment pour les notebooks le driver notebook` - qui s'utilise en faisant
+en fait il en existe plusieurs autres, et pour bien voir les différences je vous invite à consulter les deux notebooks suivants
 
-```python
-%matplotlib notebook
-```
-
-et pour bien voir les différences je vous invite à consulter les deux notebooks suivants
-
-* `4-01-matplotlib-z1-notebook.py`
-* `4-01-matplotlib-z2-notebook.py`
+* [le mode `%matplolib inline`](#label-matplotlib-inline)
+* [le mode `%matplolib ipympl`](#label-matplotlib-ipympl)
 
 à retenir principalement, c'est que si on voulait être complètement propre,
 on ferait pour chaque figure
@@ -95,7 +89,7 @@ et là ça devient potentiellement confusant, car
 * en mode `inline`, ce n'est pas nécessaire de créer les figures avec `plt.figure()`
   mais il faut utiliser `plt.show()` si on veut afficher plusieurs figures dans la même cellule
 
-* mais en mode `notebook` c'est un peu le contraire,
+* mais en mode `ipympl` c'est un peu le contraire,
   on est incité/obligé d'utiliser `plt.figure()` à chaque fois, et pas vraiment besoin de `plt.show()`
 
 enfin, vous noterez que `df.plot()` fait un appel à `plt.figure()` ! bref c'est un peu le bazar...
@@ -489,9 +483,9 @@ en markdown entre deux `$` :
 
 ```python
 plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi],
-           [0, '$\pi/2$', '$\pi$', '$3\pi/2$', '$2\pi$'])
+           [0, r'$\pi/2$', r'$\pi$', r'$3\pi/2$', r'$2\pi$'])
 
-plt.title("$sin(x)$ entre $0$ et $2\pi$ ")
+plt.title(r"$sin(x)$ entre $0$ et $2\pi$ ")
 plt.plot(x, np.sin(x))
 ```
 ````
@@ -518,9 +512,9 @@ plt.plot(x, np.sin(x));
 ```{code-cell} ipython3
 # le code
 plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi],
-           [0, '$\pi/2$', '$\pi$', '$3\pi/2$', '$2\pi$'])
+           [0, r'$\pi/2$', r'$\pi$', r'$3\pi/2$', r'$2\pi$'])
 
-plt.title("$sin(x)$ entre $0$ et $2\pi$ ")
+plt.title(r"$sin(x)$ entre $0$ et $2\pi$ ")
 plt.plot(x, np.sin(x));
 ```
 

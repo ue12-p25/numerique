@@ -13,6 +13,7 @@ language_info:
   pygments_lexer: ipython3
 ---
 
+(label-matplotlib-ipympl)=
 # `%matplotlib ipympl`
 
 +++
