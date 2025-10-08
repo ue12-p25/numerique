@@ -17,10 +17,6 @@ language_info:
 
 # regrouper par critères
 
-+++
-
-## les données et les librairies
-
 ```{code-cell} ipython3
 import numpy as np
 import pandas as pd
@@ -34,7 +30,7 @@ df.head(3)
 
 +++ {"tags": ["framed_cell"]}
 
-## introduction
+## dataframe, catégories et dimensions
 
 ````{admonition} →
 en `pandas`, une table de données (encore appelée *dataframe*) a uniquement 2 dimensions
@@ -320,8 +316,6 @@ on aurait pu aussi les calculer par une compréhension Python comme ceci
 ````
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
-
 # le code
 type(by_class_sex.size())
 ```
@@ -368,67 +362,18 @@ there were 347 male in class 3
 ````
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
-
 # le code
 for (class_, sex), subdf in by_class_sex:
     print(f"there were {len(subdf)} {sex} in class {class_} ")
 ```
 
-+++ {"tags": ["level_intermediate", "framed_cell"]}
-
-### display de `head()` avec IPython
-
-````{admonition} →
-on veut afficher les 2 premières lignes de chaque dataframe de la partition
-
-utiliser la méthode `head()` avec `print` n'est pas aussi joli  
-que l'affichage de la dernière expression de la cellule
-
-```python
-for group, subdf in by_class_sex:
-    print(group, subdf.head(1))
-```
-
-pour retrouver la même qualité d'affichage (en html)  
-il faut utiliser la méthode `IPython.display.display()`  
-en important la librairie `IPython`
-
-```python
-import IPython
-for group, subdf in by_class_sex:
-    print(group)
-    IPython.display.display(subdf.head(1))
-```
-````
-
-```{code-cell} ipython3
-# le code : c'est moche
-#for group, subdf in by_class_sex:
-#    print(group, subdf.head(1))
-```
-
-```{code-cell} ipython3
-:tags: [level_intermediate]
-
-# le code
-import IPython
-for group, subdf in by_class_sex:
-    print(group)
-    IPython.display.display(subdf.head(1))
-```
-
-## exercice sur les partitions `groupby`
-
-[déplacé en fin de notebook](#label-exo-groupby)
+voyez l'exercice sur les partitions `groupby` [déplacé en fin de notebook](#label-exo-groupby)
 
 +++
 
 ## intervalles de valeurs d'une colonne
 
 +++ {"tags": ["framed_cell"]}
-
-###  introduction
 
 ````{admonition} →
 parfois il y a trop de valeurs différentes dans une colonne  
@@ -909,60 +854,7 @@ df4.columns
 df4.index
 ```
 
-### **exercice** sur `pivot_table()`
-
-```{code-cell} ipython3
-df = pd.read_csv('data/wine.csv')
-df.head(2)
-```
-
-1. affichez les valeurs min, max, et moyenne, de la colonne 'magnesium'
-
-```{code-cell} ipython3
-# votre code
-```
-
-```{code-cell} ipython3
-:tags: [level_basic]
-
-# prune-cell
-summary = df.magnesium.describe()
-summary
-```
-
-2. définissez deux catégories selon que le magnesium est en dessous ou au-dessus de la moyenne (qu'on appelle `mag-low` et `mag-high`); rangez le résultat dans une colonne `mag-cat`
-
-```{code-cell} ipython3
-# votre code
-```
-
-```{code-cell} ipython3
-:tags: [level_basic]
-
-# prune-cell
-
-df['mag-cat'] = pd.cut(
-    df.magnesium,
-    bins=[summary['min'], summary['mean'], summary['max']],
-    labels=('mag-low', 'mag-high'))
-df.head()
-```
-
-3. calculez cette table
-
-![](media/pivot-table-expected.png)
-
-```{code-cell} ipython3
-:tags: [level_basic]
-
-# prune-cell
-
-df.pivot_table(values=('color-intensity', 'flavanoids', 'magnesium'),
-               index=('cultivator'),
-               columns=('mag-cat'))
-```
-
-+++ {"tags": ["framed_cell"]}
+voyez l'exercice sur `pivot_table()` [déplacé en fin de notebook](#label-exo-pivot)
 
 ## accès aux groupes
 
@@ -1001,7 +893,6 @@ by_sex = df.groupby(by='Sex')
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 :tags: [raises-exception]
 
 # le code
@@ -1047,7 +938,43 @@ extract = gb.filter(lambda df: len(df) %2 == 0)
 print(f"the extract has {len(extract)} items left")
 ```
 
+***
+
 ## `groupby.transform()` - optionnel
+
++++ {"tags": ["level_intermediate", "framed_cell"]}
+
+::::{admonition} → **digression**: display d'une dataframe avec IPython
+:class: warning dropdown
+
+dans une cellule Jupyter on peut facilement afficher une dataframe, en finissant la cellule par le nom de la dataframe  
+mais comment faire si on veut afficher **plusieurs** dataframes dans la même cellule ?
+
+l'approche naíve consisterait à utilsier un `print()`, mais le résultat est moche !  
+
+```python
+# vous pouvez essayer, le rendu n'est pas très lisible
+
+by_sex = df.groupby(by='Sex')
+
+for group, subdf in by_sex:
+    print(group, subdf.head(1))
+```
+
+pour retrouver la même qualité d'affichage (en html)  
+il faut utiliser la méthode `IPython.display.display()`  
+en important la librairie `IPython`
+
+```python
+# comme ceci ça devient lisible
+
+import IPython
+
+for group, subdf in by_sex:
+    print(group)
+    IPython.display.display(subdf.head(1))
+```
+::::
 
 pour appliquer aux différents groupes une fonction **qui prend en compte les éléments du groupe**  
 
@@ -1071,7 +998,7 @@ df.head(3)
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
+import IPython
 
 # utilisons la même approche pour remplir les ages manquants
 # par la moyenne de chaque groupe
@@ -1120,7 +1047,7 @@ IPython.display.display(df.pivot_table(values="Age", index="Sex", columns="Pclas
 +++
 
 (label-exo-groupby)=
-## exercice sur les partitions `groupby`
+## **exercice** sur `groupby()`
 
 on veut calculer la partition de la dataframe du titanic avec comme critères:  
  la classe `Pclass`, le genre `Sex`, et l'état de survie `Survived`
@@ -1273,3 +1200,62 @@ D
 
 pd.Series(D, name="taux de survie par genre dans chaque classe")
 ```
+
++++
+
+(label-exo-pivot)=
+## **exercice** sur `pivot_table()`
+
+```{code-cell} ipython3
+df = pd.read_csv('data/wine.csv')
+df.head(2)
+```
+
+1. affichez les valeurs min, max, et moyenne, de la colonne 'magnesium'
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# prune-cell
+summary = df.magnesium.describe()
+summary
+```
+
+2. définissez deux catégories selon que le magnesium est en dessous ou au-dessus de la moyenne (qu'on appelle `mag-low` et `mag-high`); rangez le résultat dans une colonne `mag-cat`
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# prune-cell
+
+df['mag-cat'] = pd.cut(
+    df.magnesium,
+    bins=[summary['min'], summary['mean'], summary['max']],
+    labels=('mag-low', 'mag-high'))
+df.head()
+```
+
+3. calculez cette table
+
+![](media/pivot-table-expected.png)
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# prune-cell
+
+df.pivot_table(values=('color-intensity', 'flavanoids', 'magnesium'),
+               index=('cultivator'),
+               columns=('mag-cat'))
+```
+
++++ {"tags": ["framed_cell"]}
+
