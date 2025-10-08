@@ -1111,7 +1111,7 @@ IPython.display.display(df.pivot_table(values="Age", index="Sex", columns="Pclas
 ## pour en savoir plus
 
 - pour creuser cette notion de `stack()/unstack()`, et comment `pivot_table()` s'en sert, voyez ce document  
-  <https://flotpython-exos-ds.readthedocs.io/en/main/pandas-howtos/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb.html>
+  <https://numerique-exos.info-mines.paris/pandas-howtos/pivot-unstack-groupby/howto-pivot-unstack-groupby-nb/>
 
 - on recommande la lecture de cet article dans la documentation `pandas`, qui approfondit le sujet et notamment la notion de `split-apply-combine`  
   (qui rappelle, de loin, la notion de *map-reduce*)  
