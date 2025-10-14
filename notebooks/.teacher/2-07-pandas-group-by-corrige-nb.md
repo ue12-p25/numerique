@@ -1067,6 +1067,20 @@ on veut calculer la partition de la dataframe du titanic avec comme critères:
 df.Sex.nunique() * df.Pclass.nunique() * df.Survived.nunique()
 ```
 
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# prune-cell 1.
+
+# ou encore, plus générique
+
+import math
+
+math.prod(
+    df[col].nunique() for col in ['Pclass', 'Sex', 'Survived']
+)
+```
+
 2. calculez la partition avec `df.groupby`  
    et affichez les nombres d'items par groupe
 
@@ -1201,8 +1215,6 @@ D
 pd.Series(D, name="taux de survie par genre dans chaque classe")
 ```
 
-+++
-
 (label-exo-pivot)=
 ## **exercice** sur `pivot_table()`
 
@@ -1256,6 +1268,3 @@ df.pivot_table(values=('color-intensity', 'flavanoids', 'magnesium'),
                index=('cultivator'),
                columns=('mag-cat'))
 ```
-
-+++ {"tags": ["framed_cell"]}
-

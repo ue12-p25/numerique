@@ -83,7 +83,7 @@ df.head(2)
 ## 3. drop
 
 1. vous remarquez une première colonne franchement inutile  
-   utiliser la méthode `drop` des dataframes pour supprimer cette colonne de votre dataframe  
+   utiliser la méthode `drop` des dataframes pour supprimer cette colonne de votre dataframe
 
 ```{code-cell} ipython3
 # votre code
@@ -397,8 +397,11 @@ df.loc[df['Country'] == 'United States', 'Mass (kg)'].sum()
 ```{code-cell} ipython3
 # prune-cell
 
-# plus tard on fera plutôt
-df.groupby(by=['Country'], axis=0)['Mass (kg)'].sum()
+# plus tard on verra les groupby
+# et pour obtenir cette info 
+# pour tous les pays d'un coup on fera 
+
+df.groupby(by=['Country'])['Mass (kg)'].sum()
 ```
 
 ## 14. blame
