@@ -1007,6 +1007,7 @@ df = titanic.copy()
 gb = df.groupby(by=['Sex', 'Pclass'])
 
 # pour pouvoir vérifier qu'on a bien fait le job
+
 print(f"===== avant: on a {sum(df['Age'].isna())} âges indéterminés")
 print(f"et les moyennes d'âges par groupe sont de")
 IPython.display.display(df.pivot_table(values="Age", index="Sex", columns="Pclass"))
@@ -1015,6 +1016,7 @@ IPython.display.display(df.pivot_table(values="Age", index="Sex", columns="Pclas
 df['Age'] = df['Age'].fillna(gb['Age'].transform('mean'))
 
 # on n'a plus de NaN et les moyennes sont inchangées
+print()
 print(f"===== après: on a {sum(df['Age'].isna())} ages indéterminés")
 print(f"et les moyennes d'âges par groupe sont de")
 IPython.display.display(df.pivot_table(values="Age", index="Sex", columns="Pclass"))

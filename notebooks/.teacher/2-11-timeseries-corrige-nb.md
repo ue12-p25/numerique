@@ -264,9 +264,8 @@ cela signifie que le type `Timestamp` supporte la notion de valeur indéfinie
 
 +++
 
-le plus simple c'est avec `dropna()`
-
-ici il n'y a des valeurs manquantes que dans la colonne `Date`
+le plus simple c'est avec `dropna()`  
+et pour ne prendre en compte les valeurs manquantes que dans la colonne `Date`
 
 ```{code-cell} ipython3
 # df.dropna?
