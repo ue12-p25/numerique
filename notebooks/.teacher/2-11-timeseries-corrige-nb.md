@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # timeseries en pandas
@@ -49,7 +49,10 @@ en Python pur, on trouve dans la librairie standard [(`import datetime`)](https:
 * `datetime` qui permet de modéliser un instant (par exemple, le 10 octobre 1954 à 10h 32' 15'' - et même plus précis encore si nécessaire)
 * `timedelta` qui permet de modéliser une durée (par exemple 2 heures 15 minutes, ou 3 ans)
 
-si vous voulez les tester vous avez un exercice en annexe 1
+l'idée étant qu'on peut faire de l'arithmétique avec ces types, comme par exemple
+* faire la différence entre deux `datetime` pour obtenir un `timedelta`
+* ou ajouter un `timedelta` à un `datetime` pour obtenir un autre `datetime`
+* ou multiplier un `timedelta` par un nombre, etc...
 ````
 
 ```{code-cell} ipython3
@@ -81,7 +84,7 @@ des versions plus flexibles et plus modernes de ces deux classes, qui s'appellen
 bref, ce sont **ces types qui seront utilisés** sous le capot, lorsqu'on aura à manipuler des grandeurs temporelles en `pandas`
 
 ```{admonition} la précision
-dans les annexes de ce notebook, vous trouverez une table avec les précisions disponibles
+voyez [en annexe une table avec les précisions disponibles](#label-time-scales)
 ```
 
 ````
@@ -399,7 +402,8 @@ imaginons que les données soient toutes mélangées
 6. 1. plottez la valeur de l'action au cours du temps
 
    * sur un même diagramme, les deux cours `High` et `Low`
-   * ensuite sur deux diagrammes séparés
+   * ensuite sur deux diagrammes séparés  
+     *hint*: lisez bien la doc de `df.plot()`
 
 **indice**
 on pourrait bien sûr utiliser `plt.plot()`  
@@ -685,8 +689,6 @@ par défaut `rolling` attache la valeur *à la fin* de l'intervalle, ou dit autr
 :class: dropdown
 
 pour exprimer la durée de la fenêtre avec `rolling()`, il apparait qu'on ne peut pas utiliser les unités `W`, `M` ou `Y` qui sont, semble-t-il, susceptibles de varier en durée en fonction du moment de référence (pour le mois et l'année, ok, mais la semaine ?!?)
-
-honnêtement c'est assez oiseux, notamment parce que `resample()` ne semble pas sujet à cette restriction..
 ````
 
 +++
@@ -767,7 +769,8 @@ pd.DataFrame({
 }).plot();
 ```
 
-### les bornes
+````{admonition} les bornes
+:class: dropdown note
 
 juste pour bien illustrer le comportement aux bornes, voici
 
@@ -775,19 +778,20 @@ juste pour bien illustrer le comportement aux bornes, voici
 
 * et le nombre de points par corbeille: **constant, sauf aux extrémités**
 
-```{code-cell} ipython3
+```{code-cell} python
 # exactement autant de corbeilles que de points
 
 len(s), len(rolling_7)
 ```
 
-```{code-cell} ipython3
+```{code-cell} python
 # le nombre de points par corbeille
 
 count_28 = s.rolling(window=pd.Timedelta(28, 'D'),
                      center=True).count()
 pd.DataFrame({'points-per-bin-28': count_28}).plot();
 ```
+````
 
 +++ {"tags": ["level_intermediate"]}
 
@@ -953,6 +957,7 @@ expected, len(df_rol)
 
 +++ {"tags": ["level_intermediate"]}
 
+(label-time-scales)=
 ## Annexe 1 - les échelles de précision
 
 +++ {"tags": ["level_intermediate"]}
