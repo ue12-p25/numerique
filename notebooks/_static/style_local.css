@@ -1,3 +1,10 @@
+/* the right-hand-side toc made more compact */
+
+ul.text-sm.leading-6>li>a {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 /*
  * ----------- specific to this course
  * used in the notebook on memory layout
