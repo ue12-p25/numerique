@@ -524,7 +524,7 @@ plt.figure(figsize=(10, 2))
 plt.plot(x, np.sin(x))
 ```
 
-+++ {"tags": ["level_basic", "framed_cell"]}
+***
 
 ## **exercice** de plot
 
@@ -553,7 +553,7 @@ on utilise ici le driver `matplotlib` pour s'entrainer un peu
 # votre code ici
 ```
 
-+++ {"tags": ["framed_cell"]}
+***
 
 ## **exercice** sauver une figure dans un fichier
 
@@ -574,3 +574,9 @@ dans un format au choix (*jpg*, *pdf*, *png*, *svg*...)
 +++
 
 ***
+
+## pour en savoir plus
+
+ceux qui veulent approfondir la question liront avec intérêt [ce livre en ligne
+très complet sur la visualisation en Python, en
+français](https://hal.inria.fr/hal-03427242/document)
